@@ -37,7 +37,7 @@
   >
 	<div
 	  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-video  
-		{viewportHeight * 16 > viewportWidth * 9 ? 'h-[50lvh] min-w-full': 'w-screen min-h-full'}"
+		{viewportHeight * 16 > viewportWidth * 9 ? 'h-screen min-w-full': 'w-screen min-h-full'}"
 	>
 	  {#if !field && typeof src === 'string'}
 		<img
@@ -65,7 +65,7 @@
 		  title="background video"
 		  src={`https://player.vimeo.com/video/${vimeoId}?background=1&muted=1&loop=1&autoplay=1`}
 		  class="aspect-video absolute {viewportHeight * 16 > viewportWidth * 9
-			? 'h-[50lvh] min-w-full'
+			? 'h-screen min-w-full'
 			: 'w-screen min-h-full'} contrast-[1.15] -z-10"
 		  frameborder="0"
 		  allowfullscreen

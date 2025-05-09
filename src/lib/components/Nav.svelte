@@ -6,7 +6,7 @@
 
 <nav class=' absolute z-10 top-0 left-0 w-screen'>
     <ContentWidth class='flex flex-row justify-between items-center border-b-1 py-5 border-white relative'>
-        <a href='/'><img src={logo} class='h-6 md:h-9 w-fit hover:opacity-80 transition-opacity' alt='home' /></a>
+        <a href='/' class=''><img src={logo} class='h-6 md:h-9 w-auto hover:opacity-80 transition-opacity' alt='home' /></a>
         <div class='flex justify-end gap-9 text-white '>
             <a href='/contact' class='hover:text-light transition duration-300 ease-fast-slow'>INQUIRE</a>
             <a href='/about' class='hover:text-light transition duration-300 ease-fast-slow'>ABOUT US</a>
