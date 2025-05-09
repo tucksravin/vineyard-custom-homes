@@ -2,8 +2,14 @@
 	"/": [
 		"src/routes/+layout.server.ts"
 	],
+	"/[[preview=preview]]/about": [
+		"src/routes/+layout.server.ts"
+	],
 	"/api/preview": [
 		"src/routes/api/preview/+server.js"
+	],
+	"/[[preview=preview]]/contact": [
+		"src/routes/+layout.server.ts"
 	],
 	"/[[preview=preview]]": [
 		"src/routes/[[preview=preview]]/+page.server.ts",
