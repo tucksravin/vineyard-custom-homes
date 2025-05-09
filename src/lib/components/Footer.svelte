@@ -24,7 +24,7 @@
         <img src={logomark} class='mt-12 mb-32 w-32' alt='vch logomark'/>
 
         <div class='w-full flex flex-col md:flex-row justify-between'>
-            <a href='/'><img src={logo} class='h-6 md:h-9 w-fit hover:opacity-80 transition-opacity' alt='home' /></a>
+            <a href='/'><img src={logo} class='h-6 md:h-9 w-auto hover:opacity-80 transition-opacity' alt='home' /></a>
             <a href='/about' class='text-white hover:text-light transition'>ABOUT VINEYARD</a>
             <a href='/about' class='text-white hover:text-light transition'>CURRENT PROJECTS</a>
             <a href='/contact' class='text-white hover:text-light transition'>CONTACT US</a>
