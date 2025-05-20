@@ -1,14 +1,9 @@
 <script>
 	import { PrismicRichText } from '@prismicio/svelte';
 
-	
-	/**
-	 * @typedef {Object} Props
-	 * @property {import("@prismicio/client").Content.RichTextSlice} slice
-	 */
 
-	/** @type {Props} */
-	let { slice } = $props();
+
+	export let slice;
 </script>
 
 <section class="container p-2 md:p8">

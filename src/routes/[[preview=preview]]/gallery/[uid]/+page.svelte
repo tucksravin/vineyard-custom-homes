@@ -4,6 +4,15 @@
   import vchVideoThumb from "$lib/assets/images/forest_still.png?as=run";
   import ScreenWidthHalfHeightMedia from "$lib/components/ScreenWidth/ScreenWidthHalfHeightMedia.svelte";
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
+  import RichTextSlice from "$lib/slices/RichText/index.svelte"
+  import ContentWidthMediaSlice from "$lib/slices/ContentWidthMedia/index.svelte"
+  import ContentWidthGallerySlider from "$lib/components/ContentWidth/ContentWidthGallerySlider.svelte";
+  import ProjectImage from "$lib/components/ProjectImage.svelte";
+ 
+  const components = {
+    'rich_text': RichTextSlice,
+    'content_width_media':ContentWidthMediaSlice
+  }
 
 
   let { data } = $props();
@@ -61,4 +70,20 @@
   </ContentWidth>
 </section>
 
-<SliceZone slices={data.page.data.slices} />
+<SliceZone slices={data.page.data.slices} components={components} />
+
+{#if data.recOne && data.recTwo}
+<section class='py-32'>
+  <ContentWidth>
+    <h2 class='text-dark'>RELATED PROJECTS</h2>
+    <div class='mt-9 flex flex-col md:flex-row w-full'>
+      <div class="w-full md:w-1/2 md:pr-4.5 aspect-[4/3] relative">
+        <ProjectImage class='aspect-[4/3] w-full flex' project={data.recOne} />
+      </div>
+      <div class="w-full md:w-1/2 md:pl-4.5 relative aspect-[4/3] mt-9 md:mt-0">
+        <ProjectImage class='aspect-[4/3] w-full flex' project={data.recTwo} />
+      </div>
+    </div>
+  </ContentWidth>
+</section>
+{/if}

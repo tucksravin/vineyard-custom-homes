@@ -1,14 +1,26 @@
 import { asText } from '@prismicio/client';
 
 import { createClient } from '$lib/prismicio';
+import { isFilled } from '@prismicio/client';
 
 export async function load({ params, fetch, cookies }) {
 	const client = createClient({ fetch, cookies });
 
 	const page = await client.getByUID('project', params.uid);
 
+	let recOne;
+	let recTwo;
+
+	if(isFilled.contentRelationship(page.data.related_one))
+		recOne = await client.getByUID('project', page.data.related_one.uid||'')
+
+	if(isFilled.contentRelationship(page.data.related_two))
+		recTwo = await client.getByUID('project', page.data.related_two.uid||'')
+
 	return {
 		page,
+		recOne,
+		recTwo,
 		title: page.data.title,
 		meta_description: page.data.meta_description,
 		meta_title: page.data.meta_title,
