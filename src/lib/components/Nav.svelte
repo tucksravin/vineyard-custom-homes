@@ -8,6 +8,7 @@
     <ContentWidth class='flex flex-row justify-between items-center border-b-1 py-5 border-white relative'>
         <a href='/' class=''><img src={logo} class='h-6 md:h-9 w-auto hover:opacity-80 transition-opacity' alt='home' /></a>
         <div class='flex justify-end gap-9 text-white '>
+            <a href='/gallery' class='hover:text-light transition duration-300 ease-fast-slow'>OUR WORK</a>
             <a href='/contact' class='hover:text-light transition duration-300 ease-fast-slow'>INQUIRE</a>
             <a href='/about' class='hover:text-light transition duration-300 ease-fast-slow'>ABOUT US</a>
         </div>

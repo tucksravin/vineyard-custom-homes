@@ -15,9 +15,7 @@
 <section class="container p-2 md:p8">
 	<PrismicRichText
 		field={slice.primary.content}
-		components={{
-			label: Label
-		}}
+	
 		
 	/>
 </section>

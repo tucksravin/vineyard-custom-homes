@@ -24,6 +24,11 @@ const routes = [
 	{
 		type: 'page',
 		path: '/:uid'
+	},
+	{
+		type: 'project',
+		path:'/gallery/:uid'
+
 	}
 ];
 

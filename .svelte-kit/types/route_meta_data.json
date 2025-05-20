@@ -11,6 +11,14 @@
 	"/[[preview=preview]]/contact": [
 		"src/routes/+layout.server.ts"
 	],
+	"/[[preview=preview]]/gallery": [
+		"src/routes/[[preview=preview]]/gallery/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/[[preview=preview]]/gallery/[uid]": [
+		"src/routes/[[preview=preview]]/gallery/[uid]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
 	"/[[preview=preview]]": [
 		"src/routes/[[preview=preview]]/+page.server.ts",
 		"src/routes/+layout.server.ts"

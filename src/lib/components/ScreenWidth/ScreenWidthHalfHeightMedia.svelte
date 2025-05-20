@@ -10,7 +10,7 @@
 
 	let {
 		src = placeholder,
-		field = undefined,
+		field = null,
 		altText = "background image",
 		placeholderSide = "right",
 		vimeoId = "",
@@ -22,6 +22,8 @@
   
 	let viewportHeight: number = $state(1024);
 	let viewportWidth: number = $state(768);
+
+	console.log(field)
   </script>
   
   <svelte:window
@@ -53,12 +55,14 @@
 		  class="absolute bottom-0 {placeholderSide}-0 h-full w-full object-cover {passedClasses} -z-10 
 		  	{src === placeholder ? 'lg:w-[45%] md:h-auto' : ''}"
 		/>
-	  {:else}
-		<PrismicImage
-		  {field}
-		  class="absolute  h-full w-full object-cover -z-10 {passedClasses}"
-		/>
+
 	  {/if}
+	  {#if field}
+	  <PrismicImage
+		  {field}
+		  class="absolute bottom-0 h-full w-full object-cover -z-10 {passedClasses}"
+		/>
+		{/if}
   
 	  {#if vimeoId}
 		<iframe

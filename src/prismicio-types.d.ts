@@ -4,6 +4,181 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type GalleryDocumentDataSlicesSlice = never;
+
+/**
+ * Content for gallery documents
+ */
+interface GalleryDocumentData {
+  /**
+   * testimonial field in *gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.testimonial
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testimonial: prismic.KeyTextField;
+
+  /**
+   * testimonial attribution field in *gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.testimonial_attribution
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testimonial_attribution: prismic.KeyTextField;
+
+  /**
+   * title field in *gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * project one field in *gallery*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.project_one
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_one: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * project two field in *gallery*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.project_two
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_two: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * project three field in *gallery*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.project_three
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_three: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * project four field in *gallery*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.project_four
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_four: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * project five field in *gallery*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.project_five
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_five: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * project six field in *gallery*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.project_six
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_six: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * project seven field in *gallery*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.project_seven
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_seven: prismic.ContentRelationshipField;
+
+  /**
+   * Slice Zone field in *gallery*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<GalleryDocumentDataSlicesSlice> /**
+   * Meta Title field in *gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: gallery.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: gallery.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *gallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * gallery document from Prismic
+ *
+ * - **API ID**: `gallery`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GalleryDocumentData>,
+    "gallery",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice = RichTextSlice;
 
 /**
@@ -76,163 +251,188 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = PageDocument;
+type ProjectDocumentDataSlicesSlice = RichTextSlice | ContentWidthMediaSlice;
 
 /**
- * Primary content in *ContentWidth → Single Col Text → Primary*
+ * Content for project documents
+ */
+interface ProjectDocumentData {
+  /**
+   * title field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * hero image field in *project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.hero_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
+   * hero vimeo id field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.hero_vimeo_id
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hero_vimeo_id: prismic.KeyTextField;
+
+  /**
+   * design credit field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.design
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  design: prismic.KeyTextField;
+
+  /**
+   * architect field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.architect
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  architect: prismic.KeyTextField;
+
+  /**
+   * testimonial field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.testimonial
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testimonial: prismic.KeyTextField;
+
+  /**
+   * testimonial attribution field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.testimonial_attribution
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testimonial_attribution: prismic.KeyTextField;
+
+  /**
+   * related one field in *project*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.related_one
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  related_one: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * related two field in *project*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.related_two
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  related_two: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * Slice Zone field in *project*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProjectDocumentDataSlicesSlice> /**
+   * Meta Title field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: project.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: project.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * project document from Prismic
+ *
+ * - **API ID**: `project`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectDocumentData>,
+    "project",
+    Lang
+  >;
+
+export type AllDocumentTypes = GalleryDocument | PageDocument | ProjectDocument;
+
+/**
+ * Primary content in *ContentWidthMedia → single → Primary*
  */
 export interface ContentWidthMediaSliceDefaultPrimary {
   /**
-   * title field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * icon field in *ContentWidth → Single Col Text → Primary*
+   * image field in *ContentWidthMedia → single → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.icon
+   * - **API ID Path**: content_width_media.default.primary.image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  icon: prismic.ImageField<never>;
+  image: prismic.ImageField<never>;
 
   /**
-   * top text field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.top_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text: prismic.RichTextField;
-
-  /**
-   * middle text field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.middle_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  middle_text: prismic.RichTextField;
-
-  /**
-   * bottom text field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.bottom_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text: prismic.RichTextField;
-
-  /**
-   * button one text field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.button_one_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text: prismic.KeyTextField;
-
-  /**
-   * button one link field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.button_one_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link: prismic.LinkField;
-
-  /**
-   * button two text field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.button_two_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text: prismic.KeyTextField;
-
-  /**
-   * button two link field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.button_two_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link: prismic.LinkField;
-
-  /**
-   * background color field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Color
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.background_color
-   * - **Documentation**: https://prismic.io/docs/field#color
-   */
-  background_color: prismic.ColorField;
-
-  /**
-   * background_image field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.default.primary.background_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  background_image: prismic.ImageField<never>;
-
-  /**
-   * text float field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: left
-   * - **API ID Path**: content_width_media.default.primary.text_float
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_float: prismic.SelectField<"left" | "right" | "center", "filled">;
-
-  /**
-   * text box position vertical field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: top
-   * - **API ID Path**: content_width_media.default.primary.text_box_position_vertical
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_box_position_vertical: prismic.SelectField<
-    "top" | "bottom" | "center",
-    "filled"
-  >;
-
-  /**
-   * text box position horizontal field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: left
-   * - **API ID Path**: content_width_media.default.primary.text_box_position_horizontal
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_box_position_horizontal: prismic.SelectField<
-    "left" | "right" | "center",
-    "filled"
-  >;
-
-  /**
-   * vimeo_id field in *ContentWidth → Single Col Text → Primary*
+   * vimeo id field in *ContentWidthMedia → single → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -240,21 +440,10 @@ export interface ContentWidthMediaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   vimeo_id: prismic.KeyTextField;
-
-  /**
-   * loopVideo field in *ContentWidth → Single Col Text → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: content_width_media.default.primary.loopvideo
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  loopvideo: prismic.BooleanField;
 }
 
 /**
- * Single Col Text variation for ContentWidth Slice
+ * single variation for ContentWidthMedia Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -267,350 +456,83 @@ export type ContentWidthMediaSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *ContentWidth → Text Slider Left - Image Right → Primary*
+ * Primary content in *ContentWidthMedia → two col → Primary*
  */
-export interface ContentWidthMediaSliceSliderLeftImageRightPrimary {
+export interface ContentWidthMediaSliceTwoColPrimary {
   /**
-   * background color field in *ContentWidth → Text Slider Left - Image Right → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.sliderLeftImageRight.primary.background_color
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  background_color: prismic.KeyTextField;
-
-  /**
-   * image right field in *ContentWidth → Text Slider Left - Image Right → Primary*
+   * image_one field in *ContentWidthMedia → two col → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.sliderLeftImageRight.primary.image_right
+   * - **API ID Path**: content_width_media.twoCol.primary.image_one
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image_right: prismic.ImageField<never>;
+  image_one: prismic.ImageField<never>;
 
   /**
-   * vimeo_id field in *ContentWidth → Text Slider Left - Image Right → Primary*
+   * vimeo id one field in *ContentWidthMedia → two col → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.sliderLeftImageRight.primary.vimeo_id
+   * - **API ID Path**: content_width_media.twoCol.primary.vimeo_id_one
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  vimeo_id: prismic.KeyTextField;
+  vimeo_id_one: prismic.KeyTextField;
 
   /**
-   * loopVideo field in *ContentWidth → Text Slider Left - Image Right → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: content_width_media.sliderLeftImageRight.primary.loopvideo
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  loopvideo: prismic.BooleanField;
-}
-
-/**
- * Primary content in *ContentWidth → Items*
- */
-export interface ContentWidthMediaSliceSliderLeftImageRightItem {
-  /**
-   * icon field in *ContentWidth → Items*
+   * image two field in *ContentWidthMedia → two col → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.items[].icon
+   * - **API ID Path**: content_width_media.twoCol.primary.image_two
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  icon: prismic.ImageField<never>;
+  image_two: prismic.ImageField<never>;
 
   /**
-   * top text field in *ContentWidth → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.items[].top_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text: prismic.RichTextField;
-
-  /**
-   * middle text field in *ContentWidth → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.items[].middle_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  middle_text: prismic.RichTextField;
-
-  /**
-   * bottom text field in *ContentWidth → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.items[].bottom_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text: prismic.RichTextField;
-
-  /**
-   * button one text field in *ContentWidth → Items*
+   * vimeo id two field in *ContentWidthMedia → two col → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.items[].button_one_text
+   * - **API ID Path**: content_width_media.twoCol.primary.vimeo_id_two
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  button_one_text: prismic.KeyTextField;
+  vimeo_id_two: prismic.KeyTextField;
 
   /**
-   * button one link field in *ContentWidth → Items*
+   * image aspect field in *ContentWidthMedia → two col → Primary*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.items[].button_one_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Default Value**: 9:16
+   * - **API ID Path**: content_width_media.twoCol.primary.image_aspect
+   * - **Documentation**: https://prismic.io/docs/field#select
    */
-  button_one_link: prismic.LinkField;
-
-  /**
-   * button two text field in *ContentWidth → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.items[].button_two_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text: prismic.KeyTextField;
-
-  /**
-   * button two link field in *ContentWidth → Items*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.items[].button_two_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link: prismic.LinkField;
+  image_aspect: prismic.SelectField<"9:16" | "1:1", "filled">;
 }
 
 /**
- * Text Slider Left - Image Right variation for ContentWidth Slice
+ * two col variation for ContentWidthMedia Slice
  *
- * - **API ID**: `sliderLeftImageRight`
+ * - **API ID**: `twoCol`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ContentWidthMediaSliceSliderLeftImageRight =
-  prismic.SharedSliceVariation<
-    "sliderLeftImageRight",
-    Simplify<ContentWidthMediaSliceSliderLeftImageRightPrimary>,
-    Simplify<ContentWidthMediaSliceSliderLeftImageRightItem>
-  >;
+export type ContentWidthMediaSliceTwoCol = prismic.SharedSliceVariation<
+  "twoCol",
+  Simplify<ContentWidthMediaSliceTwoColPrimary>,
+  never
+>;
 
 /**
- * Primary content in *ContentWidth → Two Col Image and Text → Primary*
- */
-export interface ContentWidthMediaSliceTwoColImageAndTextPrimary {
-  /**
-   * icon field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.icon
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  icon: prismic.ImageField<never>;
-
-  /**
-   * top text field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.top_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text: prismic.RichTextField;
-
-  /**
-   * middle text field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.middle_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  middle_text: prismic.RichTextField;
-
-  /**
-   * bottom text field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.bottom_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text: prismic.RichTextField;
-
-  /**
-   * button one text field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.button_one_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text: prismic.KeyTextField;
-
-  /**
-   * button one link field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.button_one_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link: prismic.LinkField;
-
-  /**
-   * button two text field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.button_two_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text: prismic.KeyTextField;
-
-  /**
-   * button two link field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.button_two_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link: prismic.LinkField;
-
-  /**
-   * background color field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Color
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.background_color
-   * - **Documentation**: https://prismic.io/docs/field#color
-   */
-  background_color: prismic.ColorField;
-
-  /**
-   * background_image field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.background_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  background_image: prismic.ImageField<never>;
-
-  /**
-   * text float field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: left
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.text_float
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_float: prismic.SelectField<"left" | "right" | "center", "filled">;
-
-  /**
-   * text box position vertical field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: top
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.text_box_position_vertical
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_box_position_vertical: prismic.SelectField<
-    "top" | "bottom" | "center",
-    "filled"
-  >;
-
-  /**
-   * text box position horizontal field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: left
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.text_box_position_horizontal
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_box_position_horizontal: prismic.SelectField<
-    "left" | "right" | "center",
-    "filled"
-  >;
-
-  /**
-   * vimeo_id field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.vimeo_id
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  vimeo_id: prismic.KeyTextField;
-
-  /**
-   * loopVideo field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.loopvideo
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  loopvideo: prismic.BooleanField;
-
-  /**
-   * image sides field in *ContentWidth → Two Col Image and Text → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: content_width_media.twoColImageAndText.primary.image_sides
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  image_sides: prismic.BooleanField;
-}
-
-/**
- * Two Col Image and Text variation for ContentWidth Slice
- *
- * - **API ID**: `twoColImageAndText`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ContentWidthMediaSliceTwoColImageAndText =
-  prismic.SharedSliceVariation<
-    "twoColImageAndText",
-    Simplify<ContentWidthMediaSliceTwoColImageAndTextPrimary>,
-    never
-  >;
-
-/**
- * Slice variation for *ContentWidth*
+ * Slice variation for *ContentWidthMedia*
  */
 type ContentWidthMediaSliceVariation =
   | ContentWidthMediaSliceDefault
-  | ContentWidthMediaSliceSliderLeftImageRight
-  | ContentWidthMediaSliceTwoColImageAndText;
+  | ContentWidthMediaSliceTwoCol;
 
 /**
- * ContentWidth Shared Slice
+ * ContentWidthMedia Shared Slice
  *
  * - **API ID**: `content_width_media`
  * - **Description**: ContentWidthMedia
@@ -620,333 +542,6 @@ export type ContentWidthMediaSlice = prismic.SharedSlice<
   "content_width_media",
   ContentWidthMediaSliceVariation
 >;
-
-/**
- * Primary content in *Hero → Default → Primary*
- */
-export interface HeroSliceDefaultPrimary {
-  /**
-   * logo field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.logo
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  logo: prismic.ImageField<never>;
-
-  /**
-   * background image field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.background_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  background_image: prismic.ImageField<"desktop">;
-
-  /**
-   * vimeo id field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.vimeo_id
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  vimeo_id: prismic.KeyTextField;
-
-  /**
-   * top text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.top_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text: prismic.RichTextField;
-
-  /**
-   * middle text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.middle_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  middle_text: prismic.RichTextField;
-
-  /**
-   * bottom text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.bottom_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text: prismic.RichTextField;
-
-  /**
-   * button one text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.button_one_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text: prismic.KeyTextField;
-
-  /**
-   * button one link field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.button_one_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link: prismic.LinkField;
-
-  /**
-   * button two text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.button_two_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text: prismic.KeyTextField;
-
-  /**
-   * button two link field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.button_two_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link: prismic.LinkField;
-
-  /**
-   * text box float field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: left
-   * - **API ID Path**: hero.default.primary.text_box_float
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_box_float: prismic.SelectField<"left" | "right" | "center", "filled">;
-
-  /**
-   * text box vertical align field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: top
-   * - **API ID Path**: hero.default.primary.text_box_vertical_align
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_box_vertical_align: prismic.SelectField<
-    "top" | "bottom" | "center",
-    "filled"
-  >;
-
-  /**
-   * text justify field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: left
-   * - **API ID Path**: hero.default.primary.text_align
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_align: prismic.SelectField<"left" | "right" | "center", "filled">;
-}
-
-/**
- * Default variation for Hero Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<HeroSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *Hero → slider → Primary*
- */
-export interface HeroSliceSliderPrimary {
-  /**
-   * logo field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slider.primary.logo
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  logo: prismic.ImageField<never>;
-
-  /**
-   * top text field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slider.primary.top_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text: prismic.RichTextField;
-
-  /**
-   * middle text field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slider.primary.middle_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  middle_text: prismic.RichTextField;
-
-  /**
-   * bottom text field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slider.primary.bottom_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text: prismic.RichTextField;
-
-  /**
-   * button one text field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slider.primary.button_one_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text: prismic.KeyTextField;
-
-  /**
-   * button one link field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slider.primary.button_one_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link: prismic.LinkField;
-
-  /**
-   * button two text field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slider.primary.button_two_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text: prismic.KeyTextField;
-
-  /**
-   * button two link field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slider.primary.button_two_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link: prismic.LinkField;
-
-  /**
-   * text box float field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: left
-   * - **API ID Path**: hero.slider.primary.text_box_float
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_box_float: prismic.SelectField<"left" | "right" | "center", "filled">;
-
-  /**
-   * text box vertical align field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: top
-   * - **API ID Path**: hero.slider.primary.text_box_vertical_align
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_box_vertical_align: prismic.SelectField<
-    "top" | "bottom" | "center",
-    "filled"
-  >;
-
-  /**
-   * text justify field in *Hero → slider → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: left
-   * - **API ID Path**: hero.slider.primary.text_align
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_align: prismic.SelectField<"left" | "right" | "center", "filled">;
-}
-
-/**
- * Primary content in *Hero → Items*
- */
-export interface HeroSliceSliderItem {
-  /**
-   * background_image field in *Hero → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.items[].backgorund_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  backgorund_image: prismic.ImageField<"desktop">;
-
-  /**
-   * vimeo_id field in *Hero → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.items[].vimeo_id
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  vimeo_id: prismic.KeyTextField;
-}
-
-/**
- * slider variation for Hero Slice
- *
- * - **API ID**: `slider`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSliceSlider = prismic.SharedSliceVariation<
-  "slider",
-  Simplify<HeroSliceSliderPrimary>,
-  Simplify<HeroSliceSliderItem>
->;
-
-/**
- * Slice variation for *Hero*
- */
-type HeroSliceVariation = HeroSliceDefault | HeroSliceSlider;
-
-/**
- * Hero Shared Slice
- *
- * - **API ID**: `hero`
- * - **Description**: Hero
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
  * Primary content in *RichText → Default → Primary*
@@ -993,1010 +588,6 @@ export type RichTextSlice = prismic.SharedSlice<
   RichTextSliceVariation
 >;
 
-/**
- * Primary content in *ThreeStepPlan → Default → Primary*
- */
-export interface ThreeStepPlanSliceDefaultPrimary {
-  /**
-   * title field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * body field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.body
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  body: prismic.RichTextField;
-
-  /**
-   * label step one field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.label_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_one: prismic.RichTextField;
-
-  /**
-   * image step one field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.image_step_one
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_one: prismic.ImageField<never>;
-
-  /**
-   * top text step one field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.top_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_one: prismic.RichTextField;
-
-  /**
-   * bottom text step one field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.bottom_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_one: prismic.RichTextField;
-
-  /**
-   * button one text step one field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_one_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_one: prismic.KeyTextField;
-
-  /**
-   * button one link step one field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_one_link_step_one
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_one: prismic.LinkField;
-
-  /**
-   * button two text step one field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_two_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_one: prismic.KeyTextField;
-
-  /**
-   * button two link step one field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_two_link_step_one
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_one: prismic.LinkField;
-
-  /**
-   * label step two field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.label_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_two: prismic.RichTextField;
-
-  /**
-   * image step two field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.image_step_two
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_two: prismic.ImageField<never>;
-
-  /**
-   * top text step two field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.top_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_two: prismic.RichTextField;
-
-  /**
-   * bottom text step two field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.bottom_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_two: prismic.RichTextField;
-
-  /**
-   * button one text step two field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_one_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_two: prismic.KeyTextField;
-
-  /**
-   * button one link step two field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_one_link_step_two
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_two: prismic.LinkField;
-
-  /**
-   * button two text step two field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_two_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_two: prismic.KeyTextField;
-
-  /**
-   * button two link step two field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_two_link_step_two
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_two: prismic.LinkField;
-
-  /**
-   * label step three field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.label_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_three: prismic.RichTextField;
-
-  /**
-   * image step three field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.image_step_three
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_three: prismic.ImageField<never>;
-
-  /**
-   * top text step three field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.top_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_three: prismic.RichTextField;
-
-  /**
-   * bottom text step three field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.bottom_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_three: prismic.RichTextField;
-
-  /**
-   * button one text step three field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_one_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_three: prismic.KeyTextField;
-
-  /**
-   * button one link step three field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_one_link_step_three
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_three: prismic.LinkField;
-
-  /**
-   * button two text step three field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_two_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_three: prismic.KeyTextField;
-
-  /**
-   * button two link step three field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_two_link_step_three
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_three: prismic.LinkField;
-
-  /**
-   * button one text field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_one_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text: prismic.KeyTextField;
-
-  /**
-   * button one link field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_one_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link: prismic.LinkField;
-
-  /**
-   * button two text field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_two_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text: prismic.KeyTextField;
-
-  /**
-   * button two link field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.button_two_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link: prismic.LinkField;
-
-  /**
-   * background color field in *ThreeStepPlan → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.default.primary.background_color
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  background_color: prismic.KeyTextField;
-}
-
-/**
- * Default variation for ThreeStepPlan Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ThreeStepPlanSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ThreeStepPlanSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *ThreeStepPlan → Clickthrough → Primary*
- */
-export interface ThreeStepPlanSliceClickthroughPrimary {
-  /**
-   * title field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * body field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.body
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  body: prismic.RichTextField;
-
-  /**
-   * label step one field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.label_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_one: prismic.RichTextField;
-
-  /**
-   * image step one field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.image_step_one
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_one: prismic.ImageField<never>;
-
-  /**
-   * top text step one field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.top_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_one: prismic.RichTextField;
-
-  /**
-   * bottom text step one field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.bottom_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_one: prismic.RichTextField;
-
-  /**
-   * button one text step one field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_one_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_one: prismic.KeyTextField;
-
-  /**
-   * button one link step one field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_one_link_step_one
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_one: prismic.LinkField;
-
-  /**
-   * button two text step one field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_two_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_one: prismic.KeyTextField;
-
-  /**
-   * button two link step one field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_two_link_step_one
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_one: prismic.LinkField;
-
-  /**
-   * label step two field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.label_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_two: prismic.RichTextField;
-
-  /**
-   * image step two field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.image_step_two
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_two: prismic.ImageField<never>;
-
-  /**
-   * top text step two field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.top_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_two: prismic.RichTextField;
-
-  /**
-   * bottom text step two field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.bottom_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_two: prismic.RichTextField;
-
-  /**
-   * button one text step two field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_one_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_two: prismic.KeyTextField;
-
-  /**
-   * button one link step two field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_one_link_step_two
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_two: prismic.LinkField;
-
-  /**
-   * button two text step two field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_two_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_two: prismic.KeyTextField;
-
-  /**
-   * button two link step two field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_two_link_step_two
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_two: prismic.LinkField;
-
-  /**
-   * label step three field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.label_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_three: prismic.RichTextField;
-
-  /**
-   * image step three field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.image_step_three
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_three: prismic.ImageField<never>;
-
-  /**
-   * top text step three field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.top_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_three: prismic.RichTextField;
-
-  /**
-   * bottom text step three field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.bottom_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_three: prismic.RichTextField;
-
-  /**
-   * button one text step three field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_one_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_three: prismic.KeyTextField;
-
-  /**
-   * button one link step three field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_one_link_step_three
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_three: prismic.LinkField;
-
-  /**
-   * button two text step three field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_two_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_three: prismic.KeyTextField;
-
-  /**
-   * button two link step three field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_two_link_step_three
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_three: prismic.LinkField;
-
-  /**
-   * button one text field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_one_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text: prismic.KeyTextField;
-
-  /**
-   * button one link field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_one_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link: prismic.LinkField;
-
-  /**
-   * button two text field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_two_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text: prismic.KeyTextField;
-
-  /**
-   * button two link field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.button_two_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link: prismic.LinkField;
-
-  /**
-   * background color field in *ThreeStepPlan → Clickthrough → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.clickthrough.primary.background_color
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  background_color: prismic.KeyTextField;
-}
-
-/**
- * Clickthrough variation for ThreeStepPlan Slice
- *
- * - **API ID**: `clickthrough`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ThreeStepPlanSliceClickthrough = prismic.SharedSliceVariation<
-  "clickthrough",
-  Simplify<ThreeStepPlanSliceClickthroughPrimary>,
-  never
->;
-
-/**
- * Primary content in *ThreeStepPlan → Slider → Primary*
- */
-export interface ThreeStepPlanSliceSliderPrimary {
-  /**
-   * title field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * body field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.body
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  body: prismic.RichTextField;
-
-  /**
-   * label step one field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.label_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_one: prismic.RichTextField;
-
-  /**
-   * image step one field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.image_step_one
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_one: prismic.ImageField<never>;
-
-  /**
-   * top text step one field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.top_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_one: prismic.RichTextField;
-
-  /**
-   * bottom text step one field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.bottom_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_one: prismic.RichTextField;
-
-  /**
-   * button one text step one field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_one_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_one: prismic.KeyTextField;
-
-  /**
-   * button one link step one field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_one_link_step_one
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_one: prismic.LinkField;
-
-  /**
-   * button two text step one field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_two_text_step_one
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_one: prismic.KeyTextField;
-
-  /**
-   * button two link step one field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_two_link_step_one
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_one: prismic.LinkField;
-
-  /**
-   * label step two field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.label_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_two: prismic.RichTextField;
-
-  /**
-   * image step two field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.image_step_two
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_two: prismic.ImageField<never>;
-
-  /**
-   * top text step two field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.top_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_two: prismic.RichTextField;
-
-  /**
-   * bottom text step two field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.bottom_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_two: prismic.RichTextField;
-
-  /**
-   * button one text step two field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_one_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_two: prismic.KeyTextField;
-
-  /**
-   * button one link step two field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_one_link_step_two
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_two: prismic.LinkField;
-
-  /**
-   * button two text step two field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_two_text_step_two
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_two: prismic.KeyTextField;
-
-  /**
-   * button two link step two field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_two_link_step_two
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_two: prismic.LinkField;
-
-  /**
-   * label step three field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.label_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label_step_three: prismic.RichTextField;
-
-  /**
-   * image step three field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.image_step_three
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_step_three: prismic.ImageField<never>;
-
-  /**
-   * top text step three field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.top_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  top_text_step_three: prismic.RichTextField;
-
-  /**
-   * bottom text step three field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.bottom_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  bottom_text_step_three: prismic.RichTextField;
-
-  /**
-   * button one text step three field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_one_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text_step_three: prismic.KeyTextField;
-
-  /**
-   * button one link step three field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_one_link_step_three
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link_step_three: prismic.LinkField;
-
-  /**
-   * button two text step three field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_two_text_step_three
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text_step_three: prismic.KeyTextField;
-
-  /**
-   * button two link step three field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_two_link_step_three
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link_step_three: prismic.LinkField;
-
-  /**
-   * button one text field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_one_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one_text: prismic.KeyTextField;
-
-  /**
-   * button one link field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_one_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_one_link: prismic.LinkField;
-
-  /**
-   * button two text field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_two_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_two_text: prismic.KeyTextField;
-
-  /**
-   * button two link field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.button_two_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_two_link: prismic.LinkField;
-
-  /**
-   * background color field in *ThreeStepPlan → Slider → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_step_plan.slider.primary.background_color
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  background_color: prismic.KeyTextField;
-}
-
-/**
- * Slider variation for ThreeStepPlan Slice
- *
- * - **API ID**: `slider`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ThreeStepPlanSliceSlider = prismic.SharedSliceVariation<
-  "slider",
-  Simplify<ThreeStepPlanSliceSliderPrimary>,
-  never
->;
-
-/**
- * Slice variation for *ThreeStepPlan*
- */
-type ThreeStepPlanSliceVariation =
-  | ThreeStepPlanSliceDefault
-  | ThreeStepPlanSliceClickthrough
-  | ThreeStepPlanSliceSlider;
-
-/**
- * ThreeStepPlan Shared Slice
- *
- * - **API ID**: `three_step_plan`
- * - **Description**: ThreeStepPlan
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ThreeStepPlanSlice = prismic.SharedSlice<
-  "three_step_plan",
-  ThreeStepPlanSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -2018,38 +609,26 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      GalleryDocument,
+      GalleryDocumentData,
+      GalleryDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      ProjectDocument,
+      ProjectDocumentData,
+      ProjectDocumentDataSlicesSlice,
       AllDocumentTypes,
       ContentWidthMediaSlice,
       ContentWidthMediaSliceDefaultPrimary,
-      ContentWidthMediaSliceSliderLeftImageRightPrimary,
-      ContentWidthMediaSliceSliderLeftImageRightItem,
-      ContentWidthMediaSliceTwoColImageAndTextPrimary,
+      ContentWidthMediaSliceTwoColPrimary,
       ContentWidthMediaSliceVariation,
       ContentWidthMediaSliceDefault,
-      ContentWidthMediaSliceSliderLeftImageRight,
-      ContentWidthMediaSliceTwoColImageAndText,
-      HeroSlice,
-      HeroSliceDefaultPrimary,
-      HeroSliceSliderPrimary,
-      HeroSliceSliderItem,
-      HeroSliceVariation,
-      HeroSliceDefault,
-      HeroSliceSlider,
+      ContentWidthMediaSliceTwoCol,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
-      ThreeStepPlanSlice,
-      ThreeStepPlanSliceDefaultPrimary,
-      ThreeStepPlanSliceClickthroughPrimary,
-      ThreeStepPlanSliceSliderPrimary,
-      ThreeStepPlanSliceVariation,
-      ThreeStepPlanSliceDefault,
-      ThreeStepPlanSliceClickthrough,
-      ThreeStepPlanSliceSlider,
     };
   }
 }

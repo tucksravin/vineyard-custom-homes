@@ -1,0 +1,87 @@
+{
+  "id": "content_width_media",
+  "type": "SharedSlice",
+  "name": "ContentWidthMedia",
+  "description": "ContentWidthMedia",
+  "variations": [
+    {
+      "id": "default",
+      "name": "single",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "vimeo_id": {
+          "type": "Text",
+          "config": {
+            "label": "vimeo id",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "twoCol",
+      "name": "two col",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_one": {
+          "type": "Image",
+          "config": {
+            "label": "image_one",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "vimeo_id_one": {
+          "type": "Text",
+          "config": {
+            "label": "vimeo id one",
+            "placeholder": ""
+          }
+        },
+        "image_two": {
+          "type": "Image",
+          "config": {
+            "label": "image two",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "vimeo_id_two": {
+          "type": "Text",
+          "config": {
+            "label": "vimeo id two",
+            "placeholder": ""
+          }
+        },
+        "image_aspect": {
+          "type": "Select",
+          "config": {
+            "label": "image aspect",
+            "placeholder": "",
+            "options": [
+              "9:16",
+              "1:1"
+            ],
+            "default_value": "9:16"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
