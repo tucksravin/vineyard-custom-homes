@@ -12,12 +12,14 @@
 </script>
 
 <svelte:head>
-	<title>{page.data.title}</title>
+	<title>{page.data.title||"Vineyard Custom Homes"}</title>
 	{#if page.data.meta_description}
 		<meta name="description" content={page.data.meta_description} />
 	{/if}
 	{#if page.data.meta_title}
 		<meta name="og:title" content={page.data.meta_title} />
+	{:else}
+	<meta name="og:title" content="Vineyard Custom Homes" />
 	{/if}
 	{#if page.data.meta_image}
 		<meta name="og:image" content={page.data.meta_image.url} />
