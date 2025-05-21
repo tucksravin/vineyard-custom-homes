@@ -42,6 +42,24 @@
     if(isFilled.contentRelationship(content.project_one))
         projectOne = setProjectFromUid(content.project_one.uid)
 
+    let projectTwo:ProjectDocument|null = $state(null);
+    if(isFilled.contentRelationship(content.project_two))
+        projectTwo = setProjectFromUid(content.project_two.uid)
+    let projectThree:ProjectDocument|null = $state(null);   
+    if(isFilled.contentRelationship(content.project_three))
+        projectThree = setProjectFromUid(content.project_three.uid)
+    let projectFour:ProjectDocument|null = $state(null);
+    if(isFilled.contentRelationship(content.project_four))
+        projectFour = setProjectFromUid(content.project_four.uid)
+    let projectFive:ProjectDocument|null = $state(null);
+    if(isFilled.contentRelationship(content.project_five))
+        projectFive = setProjectFromUid(content.project_five.uid)
+    let projectSix:ProjectDocument|null = $state(null);
+    if(isFilled.contentRelationship(content.project_six))
+        projectSix = setProjectFromUid(content.project_six.uid)
+    let projectSeven:ProjectDocument|null = $state(null);
+    if(isFilled.contentRelationship(content.project_seven))
+        projectSeven = setProjectFromUid(content.project_seven.uid)    
 
 </script>
 
@@ -74,22 +92,22 @@
         <ProjectImage class='aspect-[4/3] md:aspect-video' project={projectOne} />
         <div class='w-full flex flex-col md:flex-row gap-9 md:gap-0'>
             <div class='flex flex-col md:pr-9 md:w-2/5 gap-9'>
-                <ProjectImage class='aspect-[3/4]' project={projectOne} />
-                 <ProjectImage class='aspect-[4/3]' project={projectOne} />
+                <ProjectImage class='aspect-[3/4]' isVertical={true} project={projectTwo} />
+                 <ProjectImage class='aspect-[4/3]' project={projectThree} />
                 
             </div>
             <div class='flex flex-col md:w-3/5 gap-9'>
-                 <ProjectImage class='aspect-[4/3] md:aspect-video' project={projectOne} />
-                 <ProjectImage class='aspect-[4/3] md:aspect-auto md:h-full' project={projectOne} />
+                 <ProjectImage class='aspect-[4/3] md:aspect-square' project={projectFour} />
+                 <ProjectImage class='aspect-[4/3] md:aspect-auto md:h-full' project={projectFive} />
             </div>
         </div>
         <div class='w-full flex flex-col md:flex-row gap-9 md:gap-0'>
             <div class='flex flex-col md:pr-9 md:w-3/5 gap-9'>
-                <ProjectImage class='aspect-[4/3] md:aspect-square' project={projectOne} />
+                <ProjectImage class='aspect-[4/3] md:aspect-square' project={projectSix} />
                 
             </div>
             <div class='flex flex-col md:w-2/5 gap-9'>
-                 <ProjectImage class='aspect-[4/3] md:aspect-auto md:h-full' project={projectOne} />
+                 <ProjectImage class='aspect-[4/3] md:aspect-auto md:h-full' isVertical={true} project={projectSeven} />
             </div>
         </div>
 	</ContentWidth>

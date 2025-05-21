@@ -269,6 +269,28 @@ interface ProjectDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * preview image field in *project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.preview_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  preview_image: prismic.ImageField<never>;
+
+  /**
+   * preview vimeo field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.preview_vimeo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  preview_vimeo: prismic.KeyTextField;
+
+  /**
    * hero image field in *project*
    *
    * - **Field Type**: Image
@@ -355,6 +377,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   related_two: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * preview title field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.preview_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  preview_title: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *project*

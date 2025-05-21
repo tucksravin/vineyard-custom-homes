@@ -1,18 +1,30 @@
 <script lang="ts">
-  import type { ProjectDocument } from "../../prismicio-types";
+  import { isFilled } from "@prismicio/client";
+import type { ProjectDocument } from "../../prismicio-types";
   import { PrismicImage } from "@prismicio/svelte";
 
   interface ProjectImageProps {
-    project?:ProjectDocument,
+    project?:ProjectDocument|null,
+    isVertical?:boolean,
     class?:string
   }
 
-    let { project, class:passedClasses = '' } = $props()
+    let { project, class:passedClasses = '', isVertical=false } : ProjectImageProps = $props()
 </script>
 
 {#if project}
-    <a class='{passedClasses} w-full transition-opacity duration-500 hover:opacity-95 active:brightness-50 relative' href={'/gallery/'+project.uid}>
-        <PrismicImage field={project.data.hero_image} class='h-full w-full object-cover absolute top-0 left-0' />
-        <h3 class='text-white text-center w-full absolute bottom-9'>{project.data.title}</h3>
+    <a class='{passedClasses} w-full transition-opacity duration-500 hover:opacity-95 active:brightness-50 relative overflow-hidden' href={'/gallery/'+project.uid}>
+        <PrismicImage field={isFilled.image(project.data.preview_image)? project.data.preview_image:project.data.hero_image} class='h-full w-full object-cover absolute top-0 left-0' />
+        {#if project.data.hero_vimeo_id||project.data.preview_vimeo}
+        <iframe
+          title="background video"
+          src={`https://player.vimeo.com/video/${project.data.preview_vimeo||project.data.hero_vimeo_id}?background=1&muted=1&loop=1&autoplay=1`}
+          class="absolute top-1/2 left-1/2 -translate-1/2 pointer-events-none object-cover {isVertical?'w-[120%] aspect-[9/16]':'w-[120%] h-[120%]'}"
+          frameborder="0"
+          allowfullscreen
+
+				></iframe>
+        {/if}
+        <h3 class='text-white text-center w-full absolute bottom-9'>{project.data.preview_title||project.data.title}</h3>
     </a>
 {/if}

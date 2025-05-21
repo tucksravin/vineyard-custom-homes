@@ -19,6 +19,21 @@
           "placeholder": ""
         }
       },
+      "preview_image": {
+        "type": "Image",
+        "config": {
+          "label": "preview image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "preview_vimeo": {
+        "type": "Text",
+        "config": {
+          "label": "preview vimeo",
+          "placeholder": ""
+        }
+      },
       "hero_image": {
         "type": "Image",
         "config": {
@@ -78,6 +93,13 @@
           "select": "document",
           "repeat": false,
           "customtypes": ["project"]
+        }
+      },
+      "preview_title": {
+        "type": "Text",
+        "config": {
+          "label": "preview title",
+          "placeholder": ""
         }
       },
       "slices": {
