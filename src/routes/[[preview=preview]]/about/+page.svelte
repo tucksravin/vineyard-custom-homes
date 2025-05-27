@@ -102,7 +102,7 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
                 <h4 class='text-dark'>Brad Bentley</h4>
                 <h3 class='text-light'>CO-OWNER</h3>
             </div>
-            <div>{LOREM}</div>
+            <div> A third-generation builder, he was raised around job sites, learning the value of craftsmanship and integrity from his father and grandfather. His career took him into the world of large corporations, where he gained a deep understanding of business at every level. Through it all, one lesson stood out: relationships and hard work are the foundation of lasting success. Today, he brings together old-school values and modern leadership to guide every project with care, precision, and purpose.</div>
         </div>
       </div>
       </ContentWidth>
@@ -121,26 +121,26 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
     <div class='w-full flex flex-col items-center justify-center lg:flex-row mt-32 text-center gap-16'>
       <div class='w-[280px] flex flex-col gap-8'>
         <img src={clipboard} class='h-12' alt='clipboard'/>
-        <h3 class='text-light uppercase'>PRE-CONSTRUCTION</h3>
-        <div>{LITTLE_LOREM}</div>
+        <h3 class='text-light uppercase'>From Day One</h3>
+        <div>We’ll help you find the right lot or provide expert pre-construction insight and budgeting if you already own one: setting your project up for success from day one.</div>
       </div>
       <div class='w-[280px] flex flex-col gap-8'>
         <img src={key} class='h-12' alt='key'/>
-        <h3 class='text-light uppercase'>FOUNDATION</h3>
-        <div>{LITTLE_LOREM}</div>
+        <h3 class='text-light uppercase'>The Right Team</h3>
+        <div>We connect you with trusted architects, designers, and engineers who match your style, needs, and budget: bringing the right people to the table from the start.</div>
       </div>
       
     </div>
-    <div class='w-full flex flex-col items-center justify-center lg:flex-row mt-16 text-center gap-16'>
+    <div class='w-full flex flex-col items-start justify-center lg:flex-row mt-16 text-center gap-16'>
         <div class='w-[280px] flex flex-col gap-8'>
           <img src={house} class='h-12' alt='house'/>
-          <h3 class='text-light uppercase'>BUILDING</h3>
-          <div>{LITTLE_LOREM}</div>
+          <h3 class='text-light uppercase'>Builder-Led <br/> Every Step</h3>
+          <div>Your builder is hands-on and involved in every key decision, ensuring quality with clear transparent communication throughout the process.</div>
         </div>
         <div class='w-[280px] flex flex-col gap-8'>
           <img src={pencil} class='h-12' alt='pencil'/>
-          <h3 class='text-light uppercase'>DETAILS</h3>
-          <div>{LITTLE_LOREM}</div>
+          <h3 class='text-light uppercase'>Stay in the Loop <br/> <br/></h3>
+          <div>With weekly meetings and regular updates, you’re never left guessing. We keep you informed and confident from groundbreaking to move-in.</div>
         </div>
         
       </div>
