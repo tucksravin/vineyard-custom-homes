@@ -72,9 +72,10 @@
 
 <SliceZone slices={data.page.data.slices} components={components} />
 
-{#if data.recOne && data.recTwo}
+
 <section class='py-32'>
   <ContentWidth>
+    {#if data.recOne && data.recTwo}
     <h2 class='text-dark'>RELATED PROJECTS</h2>
     <div class='mt-9 flex flex-col md:flex-row w-full'>
       <div class="w-full md:w-1/2 md:pr-4.5 aspect-[4/3] relative">
@@ -84,6 +85,13 @@
         <ProjectImage class='aspect-[4/3] w-full flex' project={data.recTwo} />
       </div>
     </div>
+    {/if}
+    <a href='/gallery' class='flex flex-row gap-4 text-light hover:text-dark transition-colors duration-300 items-center justify-center mt-16'>
+      <svg xmlns="http://www.w3.org/2000/svg" class='rotate-180  bump' width="20" height="20" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19.375" fill="white" stroke="currentColor" stroke-width="1.25"/>
+        <path d="M28.5714 20.0337L22.3214 16.4253V23.6421L28.5714 20.0337ZM0 20.6587H22.9464V19.4087H0V20.6587Z" fill="currentColor"/>
+      </svg>
+      <h3 class='bump'>BACK TO PROJECTS</h3>
+    </a>
   </ContentWidth>
 </section>
-{/if}

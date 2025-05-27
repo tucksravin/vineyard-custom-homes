@@ -9,13 +9,17 @@
 	let viewportWidth = $state(1024);
 
     type Testimonial = {
-        title: string;
+        title?: string;
         quote: string;
-        featuredImage: string;
-        profileImage: string; 
-        attribution: string;
-        attributionSubtitle: string;
+        featuredImage?: string;
+        profileImage?: string; 
+        attribution?: string;
+        attributionSubtitle?: string;
 };
+
+interface Props {
+    testimonials?: Testimonial[];
+}
 
 	let testimonialArray: Testimonial[] = [
         {
@@ -81,7 +85,7 @@
 	  if (e.detail.direction === 'right') slideRight();
 	};
   
-    let { testimonials = [] } = $props();
+    let { testimonials = [] } : Props = $props();
 
     onMount(()=>{
         if(testimonials.length>0)
@@ -113,7 +117,7 @@
             <h3 class='text-light uppercase'>{testimonial.title}</h3>
             <p class='text-white max-w-[520px]'>{testimonial.quote}</p>
             <div class='flex gap-9 items-center'>
-                <img src={testimonial.profileImage} alt={testimonial.profileImage} class='h-16 w-16 rounded-full bg-light' />
+                <img src={testimonial.profileImage||profilePlaceholder} alt={testimonial.attribution} class='h-16 w-16 rounded-full bg-light' />
                 <div class='flex flex-col'>
                     <h4 class='text-light'>{testimonial.attribution}</h4>
                     <div class='label text-light'>{testimonial.attributionSubtitle}</div>
@@ -122,7 +126,7 @@
           </div>
         
                 <img
-                src={testimonial.featuredImage}
+                src={testimonial.featuredImage|| featuredPlaceholder}
                 class="lg:h-[560px] w-full lg:w-[560px]"
                 alt='slideshow item'
                 />

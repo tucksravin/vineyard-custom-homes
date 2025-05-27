@@ -8,7 +8,7 @@
   import ContentWidthGallerySlider from '$lib/components/ContentWidth/ContentWidthGallerySlider.svelte';
   import ScreenWidthGallerySliderLarge from '$lib/components/ScreenWidth/ScreenWidthGallerySliderLarge.svelte';
   import TestimonialSlider from '$lib/components/FullWidth/TestimonialSlider.svelte';
-  import Slideshow from '$lib/components/FullWidth/Slideshow.svelte';
+
   import insta1 from '$lib/assets/images/vch_insta1.jpg'
   import insta2 from '$lib/assets/images/vch_insta2.jpg'
   import insta3 from '$lib/assets/images/vch_insta3.jpg'
@@ -16,6 +16,27 @@
   import ScreenWidthHalfHeightMedia from '$lib/components/ScreenWidth/ScreenWidthHalfHeightMedia.svelte';
 
   const instaImages = [insta1, insta2, insta3, insta4]
+  const testimonials = [
+
+	 {
+            title:'testimonial',
+            quote: '“I  wanted to share how awesome it’s been working with you. I keep getting such great feedback from others around the job site and also the neighbors that you and the subs are doing an unbelievable job!”',
+            attribution: 'Blake H.',
+            attributionSubtitle: 'Eagle, ID'
+        },
+		{
+            title:'testimonial',
+            quote: '“Finding a high integrity, high performance contractor is rare. We feel extremely blessed to have met Josiah, and have him oversee our project. We cannot give him and his team high enough praise! We welcome any prospective client to contact us for additional info on our experiences with Josiah and his crew.”',
+            attribution: 'Adam & Melissa Pitale, ENZO’s',
+            attributionSubtitle: 'Eagle, ID'
+        },
+		{
+            title:'testimonial',
+            quote: '“They make the process of homebuilding and remodel  simple.  I’ve worked with Vineyard on a couple of projects and they have exceeded my expectations each time. Josiah & Brad are bar none the best and most thoroughly professional I have ever worked with. Attention to detail, great communication and on-time results are words I use when speaking about Vineyard.  I highly recommend Vineyard, although, admittedly part of me wants to keep them a secret as they are Treasure Valley’s best custom builder!”',
+            attribution: 'Ryan H.',
+            attributionSubtitle: 'Eagle, ID'
+        },
+]
 
 	let { data } = $props();
 
@@ -49,39 +70,39 @@
 				<div class='label text-light translate-x-[0.5px]'> V </div>
 			</div>
 		</div>
-		<p class='text-center max-w-screen-sm text-dark mt-16'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+		<p class='text-center max-w-screen-sm text-dark mt-16'>With founders who grew up around job sites and craftsmen, we learned the value of doing things the right way—not the easy way. We approach every home as if we were building it for our own family.</p>
 		<div class='flex flex-col md:flex-row items-center gap-20 mt-16'>
-			<DefaultButton href='/contact'>INQUIRE</DefaultButton>
-			<DefaultButton href='/about'>ABOUT US</DefaultButton>
+			<DefaultButton href='/contact'>I WANT TO TALK</DefaultButton>
+			<DefaultButton href='/about'>Tell Me More</DefaultButton>
 		</div>
 	</ContentWidth>
 </section>
 <ScreenWidthImage vimeoId='1082680429' src={catThumb}></ScreenWidthImage>
 <section class='py-32'>
 	<ContentWidth>
-	<div class='flex flex-col items-center gap-16 mx-auto w-full lg:w-[520px]'>
+	<div class='flex flex-col items-center gap-16 mx-auto w-full lg:w-[640px]'>
 		<svg xmlns="http://www.w3.org/2000/svg" width="486" height="6" viewBox="0 0 486 6" fill="none">
 			<path d="M0 3L5 5.88675V0.113249L0 3ZM486 3L481 0.113249V5.88675L486 3ZM4.5 3.5H481.5V2.5H4.5V3.5Z" fill="#7BA0C4"/>
 	  	</svg>
 		<div class='flex flex-col items-center gap-8 text-center'>
-			<h2 class='text-dark'>PEOPLE FIRST</h2>
-			<p class='text-dark'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem.</p>
+			<h2 class='text-dark uppercase'>Legacy of Craftsmanship</h2>
+			<p class='text-dark'>With generations of building experience behind us, we know that the best homes are built from a deep understanding of the craft. Every line, joint, and finish is executed with precision—because quality should never be a question.</p>
 		</div>
 		<div class='flex flex-col items-center gap-8 text-center'>
-			<h2 class='text-dark'>YEARS IN THE MAKING</h2>
-			<p class='text-dark'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem.</p>
+			<h2 class='text-dark uppercase'>Relationships First, Always</h2>
+			<p class='text-dark'>Great homes start with great relationships. We take the time to understand your vision, communicate clearly, and guide you through every step. Our clients become collaborators—and often, friends—because trust is the foundation we build on.</p>
 		</div>
 		<div class='flex flex-col items-center gap-8 text-center'>
-			<h2 class='text-dark'>DETAILS ON DETAILS</h2>
-			<p class='text-dark'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem.</p>
+			<h2 class='text-dark uppercase'>Details Make the Difference</h2>
+			<p class='text-dark'>From intricate woodwork to custom layouts, we embrace complexity and deliver solutions that are both beautiful and lasting. We love rising to the challenge that other builders would avoid. It’s in those details that your home becomes truly yours.</p>
 		</div>
-		<DefaultButton href='/about'>ABOUT US</DefaultButton>
+		<DefaultButton href='/about'>TELL ME MORE</DefaultButton>
 
 	</div>
 	</ContentWidth>
 </section>
 <section class='py-32'>
-	<TestimonialSlider />
+	<TestimonialSlider testimonials={testimonials} />
 </section>
 <section class='py-32'>
 	<ContentWidth>
