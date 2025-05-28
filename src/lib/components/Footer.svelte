@@ -20,7 +20,7 @@
         <svg class='my-12' xmlns="http://www.w3.org/2000/svg" width="6" height="133" viewBox="0 0 6 133" fill="none">
             <path d="M2.99999 132.963L5.88675 127.963L0.113243 127.963L2.99999 132.963ZM2.5 -2.18557e-08L2.49999 128.463L3.49999 128.463L3.5 2.18557e-08L2.5 -2.18557e-08Z" fill="#7BA0C4"/>
         </svg>
-        <DefaultButton class=' border-light text-white' href='/contact'>I Want to Talk</DefaultButton>
+        <DefaultButton class=' border-light text-white' href='/contact'>Let's Connect</DefaultButton>
         <img src={logomark} class='mt-12 mb-32 w-32' alt='vch logomark'/>
 
         <div class='w-full flex flex-col md:flex-row justify-between'>

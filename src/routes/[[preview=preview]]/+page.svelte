@@ -13,28 +13,34 @@
   import insta2 from '$lib/assets/images/vch_insta2.jpg'
   import insta3 from '$lib/assets/images/vch_insta3.jpg'
   import insta4 from '$lib/assets/images/vch_insta4.jpg'
+  import enzos from '$lib/assets/images/enzos.jpg'
+  import haggetts from '$lib/assets/images/haggetts.jpg'
+  import heuser from '$lib/assets/images/heuser.jpg'
   import ScreenWidthHalfHeightMedia from '$lib/components/ScreenWidth/ScreenWidthHalfHeightMedia.svelte';
 
   const instaImages = [insta1, insta2, insta3, insta4]
   const testimonials = [
 
 	 {
-            title:'testimonial',
+       
             quote: '“I  wanted to share how awesome it’s been working with you. I keep getting such great feedback from others around the job site and also the neighbors that you and the subs are doing an unbelievable job!”',
             attribution: 'Blake H.',
-            attributionSubtitle: 'Eagle, ID'
+            attributionSubtitle: 'Eagle, ID',
+			featuredImage: haggetts,
         },
 		{
-            title:'testimonial',
+        
             quote: '“Finding a high integrity, high performance contractor is rare. We feel extremely blessed to have met Josiah, and have him oversee our project. We cannot give him and his team high enough praise! We welcome any prospective client to contact us for additional info on our experiences with Josiah and his crew.”',
             attribution: 'Adam & Melissa Pitale, ENZO’s',
-            attributionSubtitle: 'Eagle, ID'
+            attributionSubtitle: 'Eagle, ID',
+			featuredImage: enzos,
         },
 		{
-            title:'testimonial',
-            quote: '“They make the process of homebuilding and remodel  simple.  I’ve worked with Vineyard on a couple of projects and they have exceeded my expectations each time. Josiah & Brad are bar none the best and most thoroughly professional I have ever worked with. Attention to detail, great communication and on-time results are words I use when speaking about Vineyard.  I highly recommend Vineyard, although, admittedly part of me wants to keep them a secret as they are Treasure Valley’s best custom builder!”',
+            
+            quote: '“They make the process of homebuilding and remodel simple, exceeded my expectations each time I work with them. Attention to detail, great communication and on-time results are words I use when speaking about Vineyard. Although, admittedly, part of me wants to keep them a secret as they are Treasure Valley’s best custom builder!”',
             attribution: 'Ryan H.',
-            attributionSubtitle: 'Eagle, ID'
+            attributionSubtitle: 'Eagle, ID',
+			featuredImage: heuser,
         },
 ]
 
@@ -72,7 +78,7 @@
 		</div>
 		<p class='text-center max-w-screen-sm text-dark mt-16'>With founders who grew up around job sites and craftsmen, we learned the value of doing things the right way—not the easy way. We approach every home as if we were building it for our own family.</p>
 		<div class='flex flex-col md:flex-row items-center gap-20 mt-16'>
-			<DefaultButton href='/contact'>I WANT TO TALK</DefaultButton>
+			<DefaultButton href='/contact'>LET'S CONNECT</DefaultButton>
 			<DefaultButton href='/about'>Tell Me More</DefaultButton>
 		</div>
 	</ContentWidth>

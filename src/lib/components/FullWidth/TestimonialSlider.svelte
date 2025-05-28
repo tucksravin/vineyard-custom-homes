@@ -114,7 +114,7 @@ interface Props {
 			class="h-full relative overflow-hidden bg-dark flex flex-col-reverse gap-12 lg:flex-row p-4 lg:p-0"
 		  >
           <div class='w-full lg:h-full flex flex-col justify-center gap-6 lg:gap-12 lg:p-12'>
-            <h3 class='text-light uppercase'>{testimonial.title}</h3>
+            <h3 class='text-light uppercase'>{testimonial.title||'From Our Clients'}</h3>
             <p class='text-white max-w-[520px]'>{testimonial.quote}</p>
             <div class='flex gap-9 items-center'>
                 <img src={testimonial.profileImage||profilePlaceholder} alt={testimonial.attribution} class='h-16 w-16 rounded-full bg-light' />

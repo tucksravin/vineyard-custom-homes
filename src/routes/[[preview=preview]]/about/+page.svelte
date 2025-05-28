@@ -8,6 +8,9 @@
     import pencil from '$lib/assets/icons/pencil.svg'
     import house from '$lib/assets/icons/house.svg'
     import key from '$lib/assets/icons/key.svg'
+      import enzos from '$lib/assets/images/enzos.jpg'
+  import haggetts from '$lib/assets/images/haggetts.jpg'
+  import heuser from '$lib/assets/images/heuser.jpg'
 
     import ContentWidth from '$lib/components/ContentWidth/ContentWidth.svelte';
 
@@ -15,27 +18,30 @@
     import ScreenWidthHalfHeightMedia from '$lib/components/ScreenWidth/ScreenWidthHalfHeightMedia.svelte';
   import Img from '@zerodevx/svelte-img';
 
-   const testimonials = [
+  const testimonials = [
 
 	 {
-            title:'testimonial',
+
             quote: '“I  wanted to share how awesome it’s been working with you. I keep getting such great feedback from others around the job site and also the neighbors that you and the subs are doing an unbelievable job!”',
             attribution: 'Blake H.',
-            attributionSubtitle: 'Eagle, ID'
+            attributionSubtitle: 'Eagle, ID',
+			featuredImage: haggetts,
         },
 		{
-            title:'testimonial',
             quote: '“Finding a high integrity, high performance contractor is rare. We feel extremely blessed to have met Josiah, and have him oversee our project. We cannot give him and his team high enough praise! We welcome any prospective client to contact us for additional info on our experiences with Josiah and his crew.”',
             attribution: 'Adam & Melissa Pitale, ENZO’s',
-            attributionSubtitle: 'Eagle, ID'
+            attributionSubtitle: 'Eagle, ID',
+			featuredImage: enzos,
         },
 		{
-            title:'testimonial',
-            quote: '“They make the process of homebuilding and remodel  simple.  I’ve worked with Vineyard on a couple of projects and they have exceeded my expectations each time. Josiah & Brad are bar none the best and most thoroughly professional I have ever worked with. Attention to detail, great communication and on-time results are words I use when speaking about Vineyard.  I highly recommend Vineyard, although, admittedly part of me wants to keep them a secret as they are Treasure Valley’s best custom builder!”',
+
+            quote: '“They make the process of homebuilding and remodel simple, exceeded my expectations each time I work with them. Attention to detail, great communication and on-time results are words I use when speaking about Vineyard. Although, admittedly, part of me wants to keep them a secret as they are Treasure Valley’s best custom builder!”',
             attribution: 'Ryan H.',
-            attributionSubtitle: 'Eagle, ID'
+            attributionSubtitle: 'Eagle, ID',
+			featuredImage: heuser,
         },
 ]
+
   
 
   
@@ -102,7 +108,7 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
                 <h4 class='text-dark'>Brad Bentley</h4>
                 <h3 class='text-light'>CO-OWNER</h3>
             </div>
-            <div> A third-generation builder, he was raised around job sites, learning the value of craftsmanship and integrity from his father and grandfather. His career took him into the world of large corporations, where he gained a deep understanding of business at every level. Through it all, one lesson stood out: relationships and hard work are the foundation of lasting success. Today, he brings together old-school values and modern leadership to guide every project with care, precision, and purpose.</div>
+            <div>Building is in his blood. As a third-generation builder, he grew up watching his father and grandfather shape homes with their hands and a relentless commitment to doing things the right way. That early exposure to craftsmanship and integrity laid the foundation for everything that came next. Over the years, he went on to lead large corporations, gaining a deep understanding of how businesses operate at every level—from the ground up. But no matter the size or scale, one principle remained constant: success is built on strong relationships and hard work. Today, he brings that full-circle experience to every project. With one foot rooted in old-school values and the other in modern business acumen, he leads with a unique blend of hands-on expertise, strategic thinking, and a genuine care for people.</div>
         </div>
       </div>
       </ContentWidth>
