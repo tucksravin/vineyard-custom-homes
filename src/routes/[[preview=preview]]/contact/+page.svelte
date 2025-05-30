@@ -59,15 +59,15 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
               </svg>
             <div class='flex flex-col items-center gap-4 text-center'>
                 <h3 class='text-light'>CALL</h3>
-                <p class='text-dark'>208.555.1212 <br/> to speak directly with Josiah, one of our owners.</p>
+                <p class='text-dark'>208.724.4034 <br/> to speak directly with Josiah, one of our owners.</p>
             </div>
             <div class='flex flex-col items-center gap-4 text-center'>
                 <h3 class='text-light'>ADDRESS</h3>
-                <p class='text-dark'>4176 W. Morgan Creek Court <br/> Eagle ID 83616</p>
+                <p class='text-dark'>12 N. Echohawk Lane, no. 102 <br /> Eagle ID 83616</p>
             </div>
             <div class='flex flex-col items-center gap-4 text-center'>
                 <h3 class='text-light'>EMAIL</h3>
-                <p class='text-dark'>You can fill out the form below and we will be in contact with you within the next business day.</p>
+            
             </div>
         </div>
 
