@@ -25,7 +25,7 @@
 	{/if}
 	{#if slice.variation==='twoCol'}
 		<div class='aspect-[4/3] mt-9 md:mt-0 {slice.primary.image_aspect==='9:16'? "md:aspect-[9/16]":"md:aspect-square"} md:w-1/2 md:pr-4.5 relative'>
-			<PrismicImage field={slice.primary.image_one} class='w-full h-full' />
+			<PrismicImage field={slice.primary.image_one} class='w-full h-full object-cover' />
 			{#if slice.primary.vimeo_id_one}
 				<iframe
 				title="background video"
@@ -37,7 +37,7 @@
 			{/if}
 		</div>
 		<div class='aspect-[4/3] mt-9 md:mt-0 {slice.primary.image_aspect==='9:16'? "md:aspect-[9/16]":"md:aspect-square"} md:w-1/2 md:pl-4.5 relative overflow-hidden'>
-			<PrismicImage field={slice.primary.image_two} class='w-full h-full' />
+			<PrismicImage field={slice.primary.image_two} class='w-full h-full object-cover' />
 			{#if slice.primary.vimeo_id_two}
 				<iframe
 				title="background video"

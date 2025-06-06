@@ -27,39 +27,49 @@
 
     const projects:ProjectDocument[] = data.projects;
 
-   const setProjectFromUid = (uid: string | undefined): ProjectDocument | null => {
-        if(typeof uid === 'undefined')
+   const setProjectFromId = (id: string | undefined): ProjectDocument | null => {
+        if(typeof id === 'undefined')
             return null;
 
+        let count = 0; 
+        console.log('setProjectFromId', id, projects.length);
+
         for(const proj of projects) {
-            if(proj.uid === uid) return proj;
+            console.log(count, ':', proj.id, id, count++);
+
+            if(proj.id === id) return proj;
         }
-        // You might want to handle the case where no project is found
-        throw new Error(`Project with uid ${uid} not found`);
+        
+        
+        throw new Error(`Project with id ${id} not found`);
     }
     
     let projectOne:ProjectDocument|null = $state(null); 
     if(isFilled.contentRelationship(content.project_one))
-        projectOne = setProjectFromUid(content.project_one.uid)
+        projectOne = setProjectFromId(content.project_one.id)
 
     let projectTwo:ProjectDocument|null = $state(null);
     if(isFilled.contentRelationship(content.project_two))
-        projectTwo = setProjectFromUid(content.project_two.uid)
-    let projectThree:ProjectDocument|null = $state(null);   
+        projectTwo = setProjectFromId(content.project_two.id)
+
+    let projectThree:ProjectDocument|null = $state(null);
     if(isFilled.contentRelationship(content.project_three))
-        projectThree = setProjectFromUid(content.project_three.uid)
-    let projectFour:ProjectDocument|null = $state(null);
+        projectThree = setProjectFromId(content.project_three.id)
+
+    let projectFour:ProjectDocument|null = $state(null);    
     if(isFilled.contentRelationship(content.project_four))
-        projectFour = setProjectFromUid(content.project_four.uid)
+        projectFour = setProjectFromId(content.project_four.id)
+
     let projectFive:ProjectDocument|null = $state(null);
     if(isFilled.contentRelationship(content.project_five))
-        projectFive = setProjectFromUid(content.project_five.uid)
+        projectFive = setProjectFromId(content.project_five.id)
+
     let projectSix:ProjectDocument|null = $state(null);
     if(isFilled.contentRelationship(content.project_six))
-        projectSix = setProjectFromUid(content.project_six.uid)
+        projectSix = setProjectFromId(content.project_six.id)
     let projectSeven:ProjectDocument|null = $state(null);
     if(isFilled.contentRelationship(content.project_seven))
-        projectSeven = setProjectFromUid(content.project_seven.uid)    
+        projectSeven = setProjectFromId(content.project_seven.id)
 
 </script>
 
@@ -101,14 +111,16 @@
                  <ProjectImage class='aspect-[4/3] md:aspect-auto md:h-full' project={projectFive} />
             </div>
         </div>
-        <div class='w-full flex flex-col md:flex-row gap-9 md:gap-0'>
+        <div class='w-full flex flex-col md:flex-row gap-9 md:gap-0 items-center justify-center'>
             <div class='flex flex-col md:pr-9 md:w-3/5 gap-9'>
                 <ProjectImage class='aspect-[4/3] md:aspect-square' project={projectSix} />
                 
             </div>
+            {#if projectSeven}
             <div class='flex flex-col md:w-2/5 gap-9'>
                  <ProjectImage class='aspect-[4/3] md:aspect-auto md:h-full' isVertical={true} project={projectSeven} />
             </div>
+            {/if}
         </div>
 	</ContentWidth>
 </section>

@@ -24,7 +24,7 @@
 </script>
 
 <ScreenWidthHalfHeightMedia
-  class='brightness-80'
+  class='brightness-80 bg-dark'
   vimeoId={content.hero_vimeo_id || ""}
   field={content.hero_image}
 >

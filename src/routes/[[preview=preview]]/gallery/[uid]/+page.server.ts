@@ -2,6 +2,7 @@ import { asText } from '@prismicio/client';
 
 import { createClient } from '$lib/prismicio';
 import { isFilled } from '@prismicio/client';
+import type { ProjectDocument } from '../../../../prismicio-types';
 
 export async function load({ params, fetch, cookies }) {
 	const client = createClient({ fetch, cookies });
@@ -33,7 +34,15 @@ export async function entries() {
 
 	const pages = await client.getAllByType('project');
 
-	return pages.map((page) => {
+	let filteredPages: ProjectDocument<string>[] = [];
+
+	pages.forEach((page)=>{
+		if(!page.tags.includes('hide'))
+			filteredPages.push(page)
+	})
+
+	return filteredPages.map((page) => {
+		
 		return { uid: page.uid };
 	});
 }

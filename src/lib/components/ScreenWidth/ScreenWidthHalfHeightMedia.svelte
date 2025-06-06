@@ -61,8 +61,9 @@
 	  <PrismicImage
 		  {field}
 		  class="absolute bottom-0 h-full w-full object-cover -z-10 {passedClasses}"
+		  loading='eager'
 		/>
-		{/if}
+	{/if}
   
 	  {#if vimeoId}
 		<iframe
