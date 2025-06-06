@@ -25,6 +25,7 @@ import type { ProjectDocument } from "../../prismicio-types";
 
 				></iframe>
         {/if}
-        <h3 class='text-white text-center w-full absolute bottom-9'>{project.data.preview_title||project.data.title}</h3>
+        <div class="w-full h-full absolute top-0 left-0 bg-dark opacity-15 hover:opacity-0 transition-opacity duration-500"></div>
+        <h3 class='text-white text-center w-full absolute bottom-9 pointer-events-none'>{project.data.preview_title||project.data.title}</h3>
     </a>
 {/if}

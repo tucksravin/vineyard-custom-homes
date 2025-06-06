@@ -27,6 +27,7 @@
   class='brightness-80 bg-dark'
   vimeoId={content.hero_vimeo_id || ""}
   field={content.hero_image}
+  darken
 >
   <div class="w-full h-full flex flex-col items-center justify-center gap-9">
     <h1 class='text-white z-10 uppercase'>{content.title}</h1>
