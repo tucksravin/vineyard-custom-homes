@@ -19,10 +19,13 @@
 
   let content = $state(data.page.data);
 
-
+  $effect(() => {
+    data;
+    content = data.page.data;
+  });
   
 </script>
-
+{#key data}
 <ScreenWidthHalfHeightMedia
   class='brightness-80 bg-dark'
   vimeoId={content.hero_vimeo_id || ""}
@@ -96,3 +99,5 @@
     </a>
   </ContentWidth>
 </section>
+
+{/key}
