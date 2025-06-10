@@ -8,6 +8,7 @@
   import ContentWidthGallerySlider from '$lib/components/ContentWidth/ContentWidthGallerySlider.svelte';
   import ScreenWidthGallerySliderLarge from '$lib/components/ScreenWidth/ScreenWidthGallerySliderLarge.svelte';
   import TestimonialSlider from '$lib/components/FullWidth/TestimonialSlider.svelte';
+  import ScreenWidthMedia from '$lib/components/ScreenWidth/ScreenWidthMedia.svelte';
 
   import insta1 from '$lib/assets/images/vch_insta1.jpg'
   import insta2 from '$lib/assets/images/vch_insta2.jpg'
@@ -56,11 +57,11 @@
 
 <svelte:window bind:innerWidth={viewpoortWidth} />
 
-<ScreenWidthHalfHeightMedia darken vimeoId='1092191048' src={vchVideoThumb}>
+<ScreenWidthMedia darken vimeoId='1092191048' src={vchVideoThumb}>
 	<div class='w-full h-full flex items-center justify-center'>
 		<img src={vchMark} class='w-24 z-10' alt='vch logomark' />
 		</div>
-</ScreenWidthHalfHeightMedia>
+</ScreenWidthMedia>
 
 
 
@@ -83,7 +84,9 @@
 		</div>
 	</ContentWidth>
 </section>
-<ScreenWidthImage vimeoId='1092190178' src={catThumb}></ScreenWidthImage>
+<ScreenWidthImage vimeoId='1092190178' src={catThumb}>
+	<DefaultButton href='/gallery' class='absolute bottom-16 left-1/2 -translate-x-1/2 bg-white/90'>VIEW OUR WORK</DefaultButton>
+</ScreenWidthImage>
 <section class='py-32'>
 	<ContentWidth>
 	<div class='flex flex-col items-center gap-16 mx-auto w-full lg:w-[640px]'>

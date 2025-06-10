@@ -117,7 +117,7 @@ interface Props {
             <h3 class='text-light uppercase'>{testimonial.title||'From Our Clients'}</h3>
             <p class='text-white max-w-[520px]'>{testimonial.quote}</p>
             <div class='flex gap-9 items-center'>
-                <img src={testimonial.profileImage||profilePlaceholder} alt={testimonial.attribution} class='h-16 w-16 rounded-full bg-light' />
+      
                 <div class='flex flex-col'>
                     <h4 class='text-light'>{testimonial.attribution}</h4>
                     <div class='label text-light'>{testimonial.attributionSubtitle}</div>

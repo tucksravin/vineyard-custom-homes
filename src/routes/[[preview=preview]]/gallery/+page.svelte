@@ -1,7 +1,7 @@
 <script lang='ts'>
   import ScreenWidthImage from '$lib/components/ScreenWidth/ScreenWidthMedia.svelte';
   import vchMark from '$lib/assets/icons/vch-mark-lightsvg.svg'
-  import vchVideoThumb from '$lib/assets/images/forest_still.png?as=run'
+  import vchVideoThumb from '$lib/assets/images/homethumb.jpg?as=run'
   import catThumb from '$lib/assets/images/driving_cat_still.png?as=run'
   import ContentWidth from '$lib/components/ContentWidth/ContentWidth.svelte';
   import DefaultButton from '$lib/components/Buttons/DefaultButton.svelte';
@@ -18,6 +18,7 @@
   import { isFilled } from '@prismicio/client';
   import type { ProjectDocument } from '../../../prismicio-types.js';
   import ProjectImage from '$lib/components/ProjectImage.svelte';
+  import ScreenWidthMedia from '$lib/components/ScreenWidth/ScreenWidthMedia.svelte';
 
 	let { data } = $props();
 
@@ -76,11 +77,11 @@
 
 <svelte:window bind:innerWidth={viewpoortWidth} />
 
-<ScreenWidthHalfHeightMedia darken vimeoId='1082670713' src={vchVideoThumb}>
+<ScreenWidthMedia darken vimeoId='1092190178' src={vchVideoThumb}>
 	<div class='w-full h-full flex items-center justify-center'>
 		<img src={vchMark} class='w-24 z-10' alt='vch logomark' />
 	</div>
-</ScreenWidthHalfHeightMedia>
+</ScreenWidthMedia>
 
 <section class='py-32'>
 	<ContentWidth>

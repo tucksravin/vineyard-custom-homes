@@ -8,6 +8,7 @@
   import ContentWidthMediaSlice from "$lib/slices/ContentWidthMedia/index.svelte"
   import ContentWidthGallerySlider from "$lib/components/ContentWidth/ContentWidthGallerySlider.svelte";
   import ProjectImage from "$lib/components/ProjectImage.svelte";
+  import ScreenWidthMedia from "$lib/components/ScreenWidth/ScreenWidthMedia.svelte";
  
   const components = {
     'rich_text': RichTextSlice,
@@ -20,17 +21,17 @@
   let content = $state(data.page.data);
 
   $effect(() => {
-    data;
     content = data.page.data;
   });
   
 </script>
 {#key data}
-<ScreenWidthHalfHeightMedia
+<ScreenWidthMedia
   class='brightness-80 bg-dark'
   vimeoId={content.hero_vimeo_id || ""}
   field={content.hero_image}
   darken
+  percentHeight={60}
 >
   <div class="w-full h-full flex flex-col items-center justify-center gap-9">
     <h1 class='text-white z-10 uppercase'>{content.title}</h1>
@@ -48,7 +49,7 @@
       </div>
     </div>
   </div>
-</ScreenWidthHalfHeightMedia>
+</ScreenWidthMedia>
 
 <section class='py-32'>
 	<ContentWidth class='gap-9 flex flex-col items-center'>

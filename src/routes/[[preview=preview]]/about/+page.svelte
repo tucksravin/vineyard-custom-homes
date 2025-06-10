@@ -1,7 +1,7 @@
 <script lang='ts'>
 
     import vchMark from '$lib/assets/icons/vch-mark-lightsvg.svg'
-    import vchVideoThumb from '$lib/assets/images/homethumb.jpg?as=run'
+    import vchVideoThumb from '$lib/assets/images/forest_still.png?as=run'
     import josiah from '$lib/assets/images/josiah.png?as=run'
     import brad from '$lib/assets/images/brad.jpg?as=run'
     import clipboard from '$lib/assets/icons/clipboard.svg'
@@ -17,6 +17,8 @@
     import TestimonialSlider from '$lib/components/FullWidth/TestimonialSlider.svelte';
     import ScreenWidthHalfHeightMedia from '$lib/components/ScreenWidth/ScreenWidthHalfHeightMedia.svelte';
   import Img from '@zerodevx/svelte-img';
+
+  import ScreenWidthMedia from '$lib/components/ScreenWidth/ScreenWidthMedia.svelte';
 
   const testimonials = [
 
@@ -55,11 +57,11 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
   
   <svelte:window bind:innerWidth={viewpoortWidth} />
   
-  <ScreenWidthHalfHeightMedia darken vimeoId='1092190178' src={vchVideoThumb}>
+  <ScreenWidthMedia darken vimeoId='1082670713' src={vchVideoThumb}>
       <div class='w-full h-full flex items-center justify-center'>
           <img src={vchMark} class='w-24 z-10' alt='vch logomark' />
           </div>
-  </ScreenWidthHalfHeightMedia>
+  </ScreenWidthMedia>
   
   
   

@@ -15,6 +15,7 @@
     import ScreenWidthHalfHeightMedia from '$lib/components/ScreenWidth/ScreenWidthHalfHeightMedia.svelte';
   import Img from '@zerodevx/svelte-img';
   import ContactForm from '$lib/components/FullWidth/ContactForm.svelte';
+  import ScreenWidthMedia from '$lib/components/ScreenWidth/ScreenWidthMedia.svelte';
   
 
   
@@ -28,11 +29,11 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
   
   <svelte:window bind:innerWidth={viewpoortWidth} />
   
-  <ScreenWidthHalfHeightMedia darken vimeoId='1082715167' src={vchVideoThumb}>
+  <ScreenWidthMedia darken vimeoId='1082715167' src={vchVideoThumb}>
       <div class='w-full h-full flex items-center justify-center'>
           <img src={vchMark} class='w-24 z-10' alt='vch logomark' />
           </div>
-  </ScreenWidthHalfHeightMedia>
+  </ScreenWidthMedia>
   
   
   
@@ -71,7 +72,7 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
             </div>
         </div>
 
-        <ContactForm />
+        <ContactForm  />
           
       </ContentWidth>
   </section>

@@ -16,7 +16,7 @@
 </script>
 
 
-<form class="w-full flex flex-col gap-4 mt-16" name="contact" method="post" bind:this={form} netlify netlify-honeypot="bot-field">
+<form class="w-full max-w-[720px] flex flex-col gap-4 mt-16" name="contact" method="post" bind:this={form} netlify netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="contact" />
 
         <input class="w-full border-[1px] rounded-[3px] text-dark border-light h-10 pl-4 pt-[2.5px]" name="name" placeholder="Your full name" type="text"/>
