@@ -1,7 +1,7 @@
 <script lang='ts'>
 
     import vchMark from '$lib/assets/icons/vch-mark-lightsvg.svg'
-    import vchVideoThumb from '$lib/assets/images/glade_still.png?as=run'
+    import vchVideoThumb from '$lib/assets/images/homethumb.jpg?as=run'
     import josiah from '$lib/assets/images/josiah.png?as=run'
     import brad from '$lib/assets/images/brad.jpg?as=run'
     import clipboard from '$lib/assets/icons/clipboard.svg'
@@ -55,7 +55,7 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
   
   <svelte:window bind:innerWidth={viewpoortWidth} />
   
-  <ScreenWidthHalfHeightMedia darken vimeoId='1082715167' src={vchVideoThumb}>
+  <ScreenWidthHalfHeightMedia darken vimeoId='1092190178' src={vchVideoThumb}>
       <div class='w-full h-full flex items-center justify-center'>
           <img src={vchMark} class='w-24 z-10' alt='vch logomark' />
           </div>

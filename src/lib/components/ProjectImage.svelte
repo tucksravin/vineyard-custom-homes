@@ -9,12 +9,14 @@ import type { ProjectDocument } from "../../prismicio-types";
     class?:string
   }
 
+  let isHovered = $state(false);
+
     let { project, class:passedClasses = '', isVertical=false } : ProjectImageProps = $props()
 </script>
 
 {#if project}
-    <a class='{passedClasses} w-full transition-opacity duration-500 hover:opacity-95 active:brightness-50 relative overflow-hidden' href={'/gallery/'+project.uid}>
-        <PrismicImage field={isFilled.image(project.data.preview_image)? project.data.preview_image:project.data.hero_image} class='h-full w-full object-cover absolute top-0 left-0' />
+    <a class='{passedClasses} w-full transition-opacity duration-500 hover:opacity-95 active:brightness-50 relative overflow-hidden' href={'/gallery/'+project.uid} onmouseover={() => isHovered = true} onmouseout={() => isHovered = false} onfocus={() => isHovered = true} onblur={() => isHovered = false}>
+        <PrismicImage field={isFilled.image(project.data.preview_image)? project.data.preview_image:project.data.hero_image} class='h-full w-full object-cover absolute top-0 left-0 transition duration-1000 {isHovered?'scale-105':''}'  />
         {#if project.data.hero_vimeo_id||project.data.preview_vimeo}
         <iframe
           title="background video"

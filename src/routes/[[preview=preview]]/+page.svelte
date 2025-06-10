@@ -1,8 +1,8 @@
 <script lang='ts'>
   import ScreenWidthImage from '$lib/components/ScreenWidth/ScreenWidthMedia.svelte';
   import vchMark from '$lib/assets/icons/vch-mark-lightsvg.svg'
-  import vchVideoThumb from '$lib/assets/images/forest_still.png?as=run'
-  import catThumb from '$lib/assets/images/driving_cat_still.png?as=run'
+  import vchVideoThumb from '$lib/assets/images/riverThumb.jpg?as=run'
+  import catThumb from '$lib/assets/images/homethumb.jpg?as=run'
   import ContentWidth from '$lib/components/ContentWidth/ContentWidth.svelte';
   import DefaultButton from '$lib/components/Buttons/DefaultButton.svelte';
   import ContentWidthGallerySlider from '$lib/components/ContentWidth/ContentWidthGallerySlider.svelte';
@@ -56,7 +56,7 @@
 
 <svelte:window bind:innerWidth={viewpoortWidth} />
 
-<ScreenWidthHalfHeightMedia darken vimeoId='1082670713' src={vchVideoThumb}>
+<ScreenWidthHalfHeightMedia darken vimeoId='1092191048' src={vchVideoThumb}>
 	<div class='w-full h-full flex items-center justify-center'>
 		<img src={vchMark} class='w-24 z-10' alt='vch logomark' />
 		</div>
@@ -83,7 +83,7 @@
 		</div>
 	</ContentWidth>
 </section>
-<ScreenWidthImage vimeoId='1082680429' src={catThumb}></ScreenWidthImage>
+<ScreenWidthImage vimeoId='1092190178' src={catThumb}></ScreenWidthImage>
 <section class='py-32'>
 	<ContentWidth>
 	<div class='flex flex-col items-center gap-16 mx-auto w-full lg:w-[640px]'>
