@@ -4,7 +4,7 @@ import placeholder from "../../assets/images/background_placeholder.svg";
 import { PrismicImage } from "@prismicio/svelte";
 import Img from "@zerodevx/svelte-img";
 let {
- src = placeholder,
+ src = '',
  field = undefined,
  altText = "background image",
  placeholderSide = "right",
@@ -17,12 +17,14 @@ class:passedClasses = '',
  } = $props();
 let viewportHeight: number = $state(1024);
 let viewportWidth: number = $state(768);
+
 </script>
 
 <svelte:window
 bind:innerHeight={viewportHeight}
 bind:innerWidth={viewportWidth}
 />
+
 
 <section
 class="w-screen overflow-clip {backdrop ? 'fixed -z-10 top-0 left-0' : 'relative'}"
@@ -48,10 +50,10 @@ alt={altText}
 class="absolute bottom-0 {placeholderSide}-0 h-full w-full object-cover {passedClasses} -z-10
 {src === placeholder ? 'lg:w-[45%] md:h-auto' : ''}"
 />
- {:else}
+ {:else if field}
 <PrismicImage
-{field}
-class="absolute h-full w-full object-cover -z-10 {passedClasses}"
+field={field}
+class="absolute bottom-0 h-full w-full object-cover -z-10 {passedClasses}"
 />
  {/if}
  {#if vimeoId}
