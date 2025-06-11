@@ -96,26 +96,25 @@ interface Props {
 
   </script>
   
-  <ContentWidth class=" lg:h-[560px] relative px-0 md:px-8 xl:px-0">
+  <ContentWidth>
   <div
 	class="w-full h-full overflow-hidden relative"
-	use:swipe={()=>({ timeframe: 300, minSwipeDistance: 60 })}
-	onswipe={handleSwipe}
+	
   >
 	{#if tripledTestimonials.length > 0}
 	  <div
 		style="width: {tripledTestimonials.length * 100}%; transform:translateX({((-sliderIndex / tripledTestimonials.length) - (1/3)) * 100}%);"
-		class="flex flex-row justify-between flex-nowrap h-full w-full overflow-hidden
+		class="flex flex-row justify-between flex-nowrap h-[95lvh] w-full overflow-hidden
 		{isSlideAnimated ? 'transition-transform duration-[2000ms]' : ''}"
 	  >
 		{#each tripledTestimonials as testimonial, i}
 		  <div
 			style="width: {100 / tripledTestimonials.length}%;"
-			class="h-full relative overflow-hidden bg-dark flex flex-col-reverse gap-12 lg:flex-row p-4 lg:p-0"
+			class="h-full relative overflow-hidden bg-dark flex flex-col-reverse justify-end gap-12 lg:flex-row p-4 lg:p-0"
 		  >
           <div class='w-full lg:h-full flex flex-col justify-center gap-6 lg:gap-12 lg:p-12'>
             <h3 class='text-light uppercase'>{testimonial.title||'From Our Clients'}</h3>
-            <p class='text-white max-w-[520px]'>{testimonial.quote}</p>
+            <p class='text-white text-xs max-w-[520px]'>{testimonial.quote}</p>
             <div class='flex gap-9 items-center'>
       
                 <div class='flex flex-col'>
@@ -129,6 +128,8 @@ interface Props {
                 src={testimonial.featuredImage|| featuredPlaceholder}
                 class="lg:h-[560px] w-full lg:w-[560px]"
                 alt='slideshow item'
+                use:swipe={()=>({ timeframe: 300, minSwipeDistance: 60 })}
+	              onswipe={handleSwipe}
                 />
             
 		  </div>

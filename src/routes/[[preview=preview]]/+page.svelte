@@ -5,8 +5,6 @@
   import catThumb from '$lib/assets/images/homethumb.jpg?as=run'
   import ContentWidth from '$lib/components/ContentWidth/ContentWidth.svelte';
   import DefaultButton from '$lib/components/Buttons/DefaultButton.svelte';
-  import ContentWidthGallerySlider from '$lib/components/ContentWidth/ContentWidthGallerySlider.svelte';
-  import ScreenWidthGallerySliderLarge from '$lib/components/ScreenWidth/ScreenWidthGallerySliderLarge.svelte';
   import TestimonialSlider from '$lib/components/FullWidth/TestimonialSlider.svelte';
   import ScreenWidthMedia from '$lib/components/ScreenWidth/ScreenWidthMedia.svelte';
 
@@ -85,7 +83,7 @@
 	</ContentWidth>
 </section>
 <ScreenWidthImage vimeoId='1092190178' src={catThumb}>
-	<DefaultButton href='/gallery' class='absolute bottom-16 left-1/2 -translate-x-1/2 bg-white/90'>VIEW OUR WORK</DefaultButton>
+	<DefaultButton href='/gallery' class='absolute bottom-16 left-1/2 -translate-x-1/2 w-64 text-center bg-white/90'>VIEW OUR WORK</DefaultButton>
 </ScreenWidthImage>
 <section class='py-32'>
 	<ContentWidth>
@@ -110,7 +108,7 @@
 	</div>
 	</ContentWidth>
 </section>
-<section class='py-32'>
+<section class='py-32 w-screen overflow-hidden'>
 	<TestimonialSlider testimonials={testimonials} />
 </section>
 <section class='py-32'>
