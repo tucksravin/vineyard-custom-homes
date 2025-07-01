@@ -115,7 +115,7 @@
 								</h3>
 							</div>
 		{#if testimonialArray.length > 0}
-			<div class="h-80 relative overflow-hidden" use:swipe={()=>({ timeframe: 300, minSwipeDistance: 100, touchAction: 'pan-y' })} onswipe={handleSwipe}>
+			<div class="h-129 md:h-92 relative overflow-hidden" use:swipe={()=>({ timeframe: 300, minSwipeDistance: 100, touchAction: 'pan-y' })} onswipe={handleSwipe}>
 				{#each testimonialArray as testimonial, i}
 					{#if i === currentIndex}
 						<div
@@ -148,7 +148,7 @@
 			</div>
 
 			<!-- Dot Navigation -->
-			<div class="flex justify-center items-center gap-3 pb-8">
+			<div class="flex justify-center items-center gap-3 py-8">
 				{#each testimonialArray as _, i}
 					<button
 						class="w-3 h-3 rounded-full transition-all duration-300 hover:scale-110 {i === currentIndex ? 'bg-dark' : 'bg-light/75 hover:bg-light'}"
