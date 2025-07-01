@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "testimonials",
-  "label": "ownerTestimonials",
+  "id": "contractorTestimonials",
+  "label": "contractor testimonials",
   "repeatable": false,
   "status": true,
   "json": {
@@ -9,7 +9,7 @@
       "testimonials": {
         "type": "Group",
         "config": {
-          "label": "testimonial",
+          "label": "testimonials",
           "repeat": true,
           "fields": {
             "testimonial": {
@@ -31,14 +31,6 @@
               "config": {
                 "label": "attribution subheader",
                 "placeholder": ""
-              }
-            },
-            "image": {
-              "type": "Image",
-              "config": {
-                "label": "image",
-                "constraint": {},
-                "thumbnails": []
               }
             }
           }

@@ -19,7 +19,7 @@
   import { PrismicImage, PrismicLink } from '@prismicio/svelte';
 
  
-  const testimonials = [
+  let testimonials = [
 
 	 {
        
@@ -52,6 +52,9 @@
 
 	$effect(()=> {data; content = data.page.data;})
 	 const instaImages = data.instagram.data.feature
+	 const ownerTestimonials = data.ownerTestimonials.data;
+	 const contractorTestimonials = data.contractorTestimonials.data;
+	 
 </script>
 
 
@@ -90,7 +93,7 @@
 <section class='py-32'>
 	<ContentWidth>
 	<div class='flex flex-col items-center gap-16 mx-auto w-full lg:w-[640px]'>
-		<svg xmlns="http://www.w3.org/2000/svg" width="486" height="6" viewBox="0 0 486 6" fill="none">
+		<svg xmlns="http://www.w3.org/2000/svg" class='h-1.5 w-full' viewBox="0 0 486 6" fill="none">
 			<path d="M0 3L5 5.88675V0.113249L0 3ZM486 3L481 0.113249V5.88675L486 3ZM4.5 3.5H481.5V2.5H4.5V3.5Z" fill="#7BA0C4"/>
 	  	</svg>
 		<div class='flex flex-col items-center gap-8 text-center'>
@@ -111,7 +114,8 @@
 	</ContentWidth>
 </section>
 <section class='py-32 w-screen overflow-hidden'>
-	<TestimonialSlider testimonials={testimonials} />
+
+	<TestimonialSlider testimonials={ownerTestimonials.testimonials} />
 </section>
 <section class='py-32'>
 	<ContentWidth>

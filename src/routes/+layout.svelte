@@ -28,10 +28,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 	</svelte:head>
 
-<main>
+<main style="overscroll-behavior: auto contain;">
 	<Nav />
 
-	{@render children?.()}
+		{@render children?.()}
 
 	<Footer />
 </main>

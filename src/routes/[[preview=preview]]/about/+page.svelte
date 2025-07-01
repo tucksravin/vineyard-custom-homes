@@ -19,6 +19,7 @@
   import Img from '@zerodevx/svelte-img';
 
   import ScreenWidthMedia from '$lib/components/ScreenWidth/ScreenWidthMedia.svelte';
+  import ContractorTestimonialSlider from '$lib/components/FullWidth/ContractorTestimonialSlider.svelte';
 
   const testimonials = [
 
@@ -50,6 +51,12 @@
 const LOREM = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elit orci, accumsan sit amet, sodales lobortis, mollis ut, nunc. Maecenas ut mauris. Nullam posuere ornare sapien. Maecenas velit dui, tincidunt nec, fringilla quis, scelerisque sed, nisi. Suspendisse ultrices, mi eget adipiscing lacinia, odio tortor iaculis sapien, nec condimentum eros turpis eget justo. Phasellus molestie neque sed felis. Sed sapien metus, lacinia ac, bibendum non, dignissim nec, ante. Proin non enim nec eros viverra pulvinar. Duis iaculis tincidunt dolor. Integer vel tortor at eros lacinia vulputate. Cras lacinia felis sed lectus. Nullam lorem. Nullam quis lorem. Suspendisse vitae orci. Etiam massa dolor, blandit quis, porta non, pellentesque semper, augue. Ut pellentesque sem a tortor. Fusce odio. Donec faucibus molestie sem. Curabitur condimentum mi bibendum quam. Morbi tincidunt mauris at libero laoreet eleifend. Suspendisse in ante sed lorem tempus rutrum. Sed adipiscing pede sed pede. Nam condimentum. Nam in pede quis lectus aliquet aliquet. Nunc pulvinar euismod dui. Praesent venenatis. Nam porta iaculis velit. Aliquam aliquam adipiscing velit. Cras euismod feugiat tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
 const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sus pendisse tincidunt sagittis eros. Lorem ipsum dolor sit amet, con sectetur adipiscing elit. Pendisse tincidunt sagittis eros.`
       let viewpoortWidth=$state(1024)
+
+
+	let { data } = $props();
+
+    const ownerTestimonials = data.ownerTestimonials.data;
+	  const contractorTestimonials = data.contractorTestimonials.data;
   
 
   </script>
@@ -87,7 +94,7 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
   <section class='py-32'>
       <ContentWidth>
       <div class='flex flex-col items-center gap-16 mx-auto w-full lg:w-[520px]'>
-          <svg xmlns="http://www.w3.org/2000/svg" width="486" height="6" viewBox="0 0 486 6" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" class='h-1.5 w-full' viewBox="0 0 486 6" fill="none">
               <path d="M0 3L5 5.88675V0.113249L0 3ZM486 3L481 0.113249V5.88675L486 3ZM4.5 3.5H481.5V2.5H4.5V3.5Z" fill="#7BA0C4"/>
             </svg>
           <div class='flex flex-col items-center gap-8 text-center'>
@@ -104,7 +111,7 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
             </div>
             <div>Josiah Fredriksen started his construction career at a very young age working with his father a boat builder/marine carpenter/furniture maker/cabinet builder/custom home finish carpenter in his shop and in the field. His career started in custom homes 20 years ago in Southern California along side some of the best builders in the game. His old school skills and knowledge is transformed into a well rounded modern day builder who is always learning in every aspect of the building industry. His passion is in the details and foreseeing minor problems before they become major issues that become costly items for his clients. His involvement will each build is 100% hands on deck with every budget, selection, decision and client meeting to guarantee Vineyards standards are met.</div>
         </div>
-        <div class='w-full lg:w-1/2 lg:pl-8 flex flex-col gap-8'>
+        <div class='w-full lg:w-1/2 lg:pl-8 flex flex-col gap-8 mt-12 md:mt-0'>
             <Img src={brad} class="w-full aspect-[4/3] object-cover"/>
             <div>
                 <h4 class='text-dark'>Brad Bentley</h4>
@@ -115,10 +122,10 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
       </div>
       </ContentWidth>
   </section>
-  <section class='py-32'>
+  <section class='py-16'>
     <ContentWidth>
     <div class='flex flex-col items-center gap-16 mx-auto w-full lg:w-[640px]'>
-        <svg xmlns="http://www.w3.org/2000/svg" width="486" height="6" viewBox="0 0 486 6" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" class='h-1.5 w-full' viewBox="0 0 486 6" fill="none">
             <path d="M0 3L5 5.88675V0.113249L0 3ZM486 3L481 0.113249V5.88675L486 3ZM4.5 3.5H481.5V2.5H4.5V3.5Z" fill="#7BA0C4"/>
           </svg>
         <div class='flex flex-col items-center gap-8 text-center'>
@@ -139,21 +146,25 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
       </div>
       
     </div>
-    <div class='w-full flex flex-col items-start justify-center lg:flex-row mt-16 text-center gap-16'>
+    <div class='w-full flex flex-col items-center justify-center lg:flex-row mt-16 text-center gap-16'>
         <div class='w-[280px] flex flex-col gap-8'>
           <img src={house} class='h-12' alt='house'/>
-          <h3 class='text-light uppercase'>Builder-Led <br/> Every Step</h3>
+          <h3 class='text-light uppercase'>Builder-Led</h3>
           <div>Your builder is hands-on and involved in every key decision, ensuring quality with clear transparent communication throughout the process.</div>
         </div>
         <div class='w-[280px] flex flex-col gap-8'>
           <img src={pencil} class='h-12' alt='pencil'/>
-          <h3 class='text-light uppercase'>Stay in the Loop <br/> <br/></h3>
+          <h3 class='text-light uppercase'>Stay in the Loop </h3>
           <div>With weekly meetings and regular updates, you’re never left guessing. We keep you informed and confident from groundbreaking to move-in.</div>
         </div>
         
       </div>
     </ContentWidth>
 </section>
-  <section class='py-32'>
-      <TestimonialSlider testimonials={testimonials}/>
+  <section class='py-16'>
+      <TestimonialSlider testimonials={ownerTestimonials.testimonials}/>
+  </section>
+
+    <section class='py-32'>
+      <ContractorTestimonialSlider testimonials={contractorTestimonials.testimonials}/>
   </section>

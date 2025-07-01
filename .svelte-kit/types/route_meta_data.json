@@ -3,6 +3,7 @@
 		"src/routes/+layout.server.ts"
 	],
 	"/[[preview=preview]]/about": [
+		"src/routes/[[preview=preview]]/about/+page.server.ts",
 		"src/routes/+layout.server.ts"
 	],
 	"/api/preview": [
