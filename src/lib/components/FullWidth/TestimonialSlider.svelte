@@ -23,7 +23,7 @@ interface Props {
 
 	let testimonialArray: Testimonial[] = [
         {
-            title:'testimonial',
+         
             quote: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem.”',
             featuredImage: featuredPlaceholder,
             profileImage: profilePlaceholder,
@@ -31,7 +31,7 @@ interface Props {
             attributionSubtitle: 'CITY, ST'
         },
         {
-            title:'testimonial',
+            
             quote: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem.”',
             featuredImage: featuredPlaceholder,
             profileImage: profilePlaceholder,
@@ -39,7 +39,6 @@ interface Props {
             attributionSubtitle: 'CITY, ST'
         },
         {
-            title:'testimonial',
             quote: '“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem.”',
             featuredImage: featuredPlaceholder,
             profileImage: profilePlaceholder,
@@ -126,7 +125,7 @@ interface Props {
         
                 <img
                 src={testimonial.featuredImage|| featuredPlaceholder}
-                class="lg:h-[560px] w-full lg:w-[560px]"
+                class="h-full w-full lg:w-[560px] object-cover"
                 alt='slideshow item'
                 use:swipe={()=>({ timeframe: 300, minSwipeDistance: 60 })}
 	              onswipe={handleSwipe}

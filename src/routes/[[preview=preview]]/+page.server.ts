@@ -7,8 +7,11 @@ export async function load({ fetch, cookies }) {
 
 	const page = await client.getByUID('page', 'home');
 
+	const instagram = await client.getSingle('instagram_features')
+
 	return {
 		page,
+		instagram,
 		title: asText(page.data.title),
 		meta_description: page.data.meta_description,
 		meta_title: page.data.meta_title,

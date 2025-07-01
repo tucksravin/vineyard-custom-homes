@@ -179,6 +179,109 @@ export type GalleryDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *instagram features → feature*
+ */
+export interface InstagramFeaturesDocumentDataFeatureItem {
+  /**
+   * image field in *instagram features → feature*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: instagram_features.feature[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * url field in *instagram features → feature*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: instagram_features.feature[].url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+type InstagramFeaturesDocumentDataSlicesSlice = never;
+
+/**
+ * Content for instagram features documents
+ */
+interface InstagramFeaturesDocumentData {
+  /**
+   * feature field in *instagram features*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: instagram_features.feature[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  feature: prismic.GroupField<
+    Simplify<InstagramFeaturesDocumentDataFeatureItem>
+  >;
+
+  /**
+   * Slice Zone field in *instagram features*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: instagram_features.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<InstagramFeaturesDocumentDataSlicesSlice> /**
+   * Meta Title field in *instagram features*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: instagram_features.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *instagram features*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: instagram_features.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *instagram features*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: instagram_features.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * instagram features document from Prismic
+ *
+ * - **API ID**: `instagram_features`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type InstagramFeaturesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<InstagramFeaturesDocumentData>,
+    "instagram_features",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice = RichTextSlice;
 
 /**
@@ -448,7 +551,135 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = GalleryDocument | PageDocument | ProjectDocument;
+/**
+ * Item in *testimonials → testimonial*
+ */
+export interface TestimonialsDocumentDataTestimonialItem {
+  /**
+   * testimonial field in *testimonials → testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonial[].testimonial
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testimonial: prismic.KeyTextField;
+
+  /**
+   * attribution field in *testimonials → testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonial[].attribution
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  attribution: prismic.KeyTextField;
+
+  /**
+   * attribution subheader field in *testimonials → testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonial[].attribution_subheader
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  attribution_subheader: prismic.KeyTextField;
+
+  /**
+   * image field in *testimonials → testimonial*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonial[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+type TestimonialsDocumentDataSlicesSlice = never;
+
+/**
+ * Content for testimonials documents
+ */
+interface TestimonialsDocumentData {
+  /**
+   * testimonial field in *testimonials*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonial[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  testimonial: prismic.GroupField<
+    Simplify<TestimonialsDocumentDataTestimonialItem>
+  >;
+
+  /**
+   * Slice Zone field in *testimonials*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TestimonialsDocumentDataSlicesSlice> /**
+   * Meta Title field in *testimonials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: testimonials.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *testimonials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: testimonials.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *testimonials*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * testimonials document from Prismic
+ *
+ * - **API ID**: `testimonials`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TestimonialsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<TestimonialsDocumentData>,
+    "testimonials",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | GalleryDocument
+  | InstagramFeaturesDocument
+  | PageDocument
+  | ProjectDocument
+  | TestimonialsDocument;
 
 /**
  * Primary content in *ContentWidthMedia → single → Primary*
@@ -645,12 +876,20 @@ declare module "@prismicio/client" {
       GalleryDocument,
       GalleryDocumentData,
       GalleryDocumentDataSlicesSlice,
+      InstagramFeaturesDocument,
+      InstagramFeaturesDocumentData,
+      InstagramFeaturesDocumentDataFeatureItem,
+      InstagramFeaturesDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       ProjectDocument,
       ProjectDocumentData,
       ProjectDocumentDataSlicesSlice,
+      TestimonialsDocument,
+      TestimonialsDocumentData,
+      TestimonialsDocumentDataTestimonialItem,
+      TestimonialsDocumentDataSlicesSlice,
       AllDocumentTypes,
       ContentWidthMediaSlice,
       ContentWidthMediaSliceDefaultPrimary,

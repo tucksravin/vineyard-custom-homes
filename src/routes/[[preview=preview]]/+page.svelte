@@ -16,8 +16,9 @@
   import haggetts from '$lib/assets/images/haggetts.jpg'
   import heuser from '$lib/assets/images/heuser.jpg'
   import ScreenWidthHalfHeightMedia from '$lib/components/ScreenWidth/ScreenWidthHalfHeightMedia.svelte';
+  import { PrismicImage, PrismicLink } from '@prismicio/svelte';
 
-  const instaImages = [insta1, insta2, insta3, insta4]
+ 
   const testimonials = [
 
 	 {
@@ -50,6 +51,7 @@
 	let content = data.page.data;
 
 	$effect(()=> {data; content = data.page.data;})
+	 const instaImages = data.instagram.data.feature
 </script>
 
 
@@ -116,10 +118,10 @@
 		<a href='https://www.instagram.com/vineyardcustomhomes/' target="_blank" aria-label='instagram'><i class='fa-brands fa-instagram fa-2xl text-dark scale-150 hover:text-light transition' ></i></a>
 		<h3 class='text-dark mt-12'>VIEW OUR CURRENT PROJECTS</h3>
 		<div class='w-full flex flex-row justify-center items-center flex-wrap gap-6 mt-6'>
-			{#each instaImages as image}
-				<a href='https://www.instagram.com/vineyardcustomhomes/' class='w-full md:w-1/3 xl:w-1/5 aspect-square hover:opacity-80 transition-opacity' aria-label='vch instagram photo'>
-					<img src={image} class='w-full h-full object-cover' alt='vch instagram' />
-				</a>
+			{#each instaImages as insta}
+				<PrismicLink field={insta.url} class='w-full md:w-1/3 xl:w-1/5 aspect-square hover:opacity-80 transition-opacity' aria-label='vch instagram photo'>
+					<PrismicImage field={insta.image} class='w-full h-full object-cover' />
+				</PrismicLink>
 			{/each}
 			
 		</div>
