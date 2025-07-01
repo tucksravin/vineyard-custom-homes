@@ -26,7 +26,7 @@
         <div class='w-full flex flex-col gap-5 items-start'>
             <a href='/'><img src={logo} class='h-6 md:h-9 w-auto hover:opacity-80 transition-opacity mb-5' alt='home' /></a>
             <a href='/about' class='text-white hover:text-light transition'>ABOUT VINEYARD</a>
-            <a href='/about' class='text-white hover:text-light transition'>CURRENT PROJECTS</a>
+            <a href='/gallery' class='text-white hover:text-light transition'>Our Work</a>
             <a href='/contact' class='text-white hover:text-light transition'>CONTACT US</a>
         </div>
         <div class='my-16 copyright text-white'>{'Copyright © '+ new Date().getFullYear() +' Vineyard Custom Homes'}</div>
