@@ -31,11 +31,11 @@
   vimeoId={content.hero_vimeo_id || ""}
   field={content.hero_image}
   darken
-  percentHeight={60}
+  percentHeight={66}
 >
   <div class="w-full h-full flex flex-col items-center justify-center gap-9">
     <h1 class='text-white z-10 uppercase'>{content.title}</h1>
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center mt-24 md:mt-0">
       <div
         class="h-0 w-3 border-light border-b-[1px] -translate-x-[0.5px]"
       ></div>
