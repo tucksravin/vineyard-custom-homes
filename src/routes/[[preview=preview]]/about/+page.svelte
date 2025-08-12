@@ -106,7 +106,7 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
         <div class='w-full lg:w-1/2 lg:pr-8 flex flex-col gap-8'>
             <Img src={josiah} class="w-full aspect-[4/3] object-cover"/>
             <div>
-                <h4 class='text-dark'>Josiah Fredrickson</h4>
+                <h4 class='text-dark'>Josiah Fredricksen</h4>
                 <h3 class='text-light'>CO-OWNER</h3>
             </div>
             <div>Josiah Fredriksen started his construction career at a very young age working with his father a boat builder/marine carpenter/furniture maker/cabinet builder/custom home finish carpenter in his shop and in the field. His career started in custom homes 20 years ago in Southern California along side some of the best builders in the game. His old school skills and knowledge is transformed into a well rounded modern day builder who is always learning in every aspect of the building industry. His passion is in the details and foreseeing minor problems before they become major issues that become costly items for his clients. His involvement will each build is 100% hands on deck with every budget, selection, decision and client meeting to guarantee Vineyards standards are met.</div>
