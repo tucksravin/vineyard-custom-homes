@@ -478,6 +478,17 @@ interface PageDocumentData {
   title: prismic.RichTextField;
 
   /**
+   * vimeo id for video field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.vimeo_id_for_video
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  vimeo_id_for_video: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Page*
    *
    * - **Field Type**: Slice Zone

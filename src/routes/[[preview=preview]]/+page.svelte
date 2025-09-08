@@ -87,7 +87,7 @@
 		</div>
 	</ContentWidth>
 </section>
-<ScreenWidthImage vimeoId='1092190178' src={catThumb}>
+<ScreenWidthImage vimeoId={data.page.data.vimeo_id_for_video||'1092190178'} src={catThumb}>
 	<DefaultButton href='/gallery' class='absolute bottom-16 left-1/2 -translate-x-1/2 w-64 text-center bg-white/90' bump={false}>VIEW OUR WORK</DefaultButton>
 </ScreenWidthImage>
 <section class='py-32'>
