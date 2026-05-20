@@ -48,12 +48,9 @@
 
 	let viewpoortWidth=$state(1024)
 
-	let content = data.page.data;
-
-	$effect(()=> {data; content = data.page.data;})
-	 const instaImages = data.instagram.data.feature
-	 const ownerTestimonials = data.ownerTestimonials.data;
-	 const contractorTestimonials = data.contractorTestimonials.data;
+	const instaImages = $derived(data.instagram.data.feature);
+	const ownerTestimonials = $derived(data.ownerTestimonials.data);
+	const contractorTestimonials = $derived(data.contractorTestimonials.data);
 	 
 </script>
 

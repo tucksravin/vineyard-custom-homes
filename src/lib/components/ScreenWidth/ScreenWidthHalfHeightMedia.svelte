@@ -22,8 +22,6 @@
   
 	let viewportHeight: number = $state(1024);
 	let viewportWidth: number = $state(768);
-
-	console.log(field)
   </script>
   
   <svelte:window

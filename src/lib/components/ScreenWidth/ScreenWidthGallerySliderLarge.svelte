@@ -107,29 +107,17 @@
           slideLeft();
       }
 
-      let progressPosistion = $state(0);
-      let progressWrapForwardPosition = $state(-100);
-      let progressWrapBackwardPosition = $state(itemArray.length*100)
-
-      $effect(() => {
-        progressPosistion= (sliderIndex)*100;
-        if(sliderIndex==itemArray.length)
-            progressWrapForwardPosition=0;
-        else
-        progressWrapForwardPosition = 100;
-        
-        if(sliderIndex==-1)
-            progressWrapBackwardPosition=itemArray.length*100-100;
-        else
-            progressWrapBackwardPosition = itemArray.length*100;
-
-      });
+      const progressPosistion = $derived(sliderIndex * 100);
+      const progressWrapForwardPosition = $derived(sliderIndex === itemArray.length ? 0 : 100);
+      const progressWrapBackwardPosition = $derived(
+        sliderIndex === -1 ? itemArray.length * 100 - 100 : itemArray.length * 100
+      );
   
       onMount(()=>{
          sliderInterval = setInterval(()=>slideRight(), SLIDER_INTERVAL_IN_MS);
       });
   
-      const tripledItems = itemArray.concat(itemArray).concat(itemArray)
+      const tripledItems = $derived(itemArray.concat(itemArray).concat(itemArray))
   </script>
   <svelte:head><title>Portfolios | Reddoor Wireframer</title></svelte:head>
   <svelte:window bind:innerWidth />

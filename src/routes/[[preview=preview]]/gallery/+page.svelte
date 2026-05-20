@@ -24,9 +24,9 @@
 
 	let viewpoortWidth=$state(1024)
 
-	let content = $state(data.page.data);
+	const content = $derived(data.page.data);
 
-    const projects:ProjectDocument[] = data.projects;
+	const projects: ProjectDocument[] = $derived(data.projects);
 
    const setProjectFromId = (id: string | undefined): ProjectDocument | null => {
         if(typeof id === 'undefined')
@@ -45,32 +45,27 @@
         throw new Error(`Project with id ${id} not found`);
     }
     
-    let projectOne:ProjectDocument|null = $state(null); 
-    if(isFilled.contentRelationship(content.project_one))
-        projectOne = setProjectFromId(content.project_one.id)
-
-    let projectTwo:ProjectDocument|null = $state(null);
-    if(isFilled.contentRelationship(content.project_two))
-        projectTwo = setProjectFromId(content.project_two.id)
-
-    let projectThree:ProjectDocument|null = $state(null);
-    if(isFilled.contentRelationship(content.project_three))
-        projectThree = setProjectFromId(content.project_three.id)
-
-    let projectFour:ProjectDocument|null = $state(null);    
-    if(isFilled.contentRelationship(content.project_four))
-        projectFour = setProjectFromId(content.project_four.id)
-
-    let projectFive:ProjectDocument|null = $state(null);
-    if(isFilled.contentRelationship(content.project_five))
-        projectFive = setProjectFromId(content.project_five.id)
-
-    let projectSix:ProjectDocument|null = $state(null);
-    if(isFilled.contentRelationship(content.project_six))
-        projectSix = setProjectFromId(content.project_six.id)
-    let projectSeven:ProjectDocument|null = $state(null);
-    if(isFilled.contentRelationship(content.project_seven))
-        projectSeven = setProjectFromId(content.project_seven.id)
+    const projectOne: ProjectDocument | null = $derived(
+        isFilled.contentRelationship(content.project_one) ? setProjectFromId(content.project_one.id) : null
+    );
+    const projectTwo: ProjectDocument | null = $derived(
+        isFilled.contentRelationship(content.project_two) ? setProjectFromId(content.project_two.id) : null
+    );
+    const projectThree: ProjectDocument | null = $derived(
+        isFilled.contentRelationship(content.project_three) ? setProjectFromId(content.project_three.id) : null
+    );
+    const projectFour: ProjectDocument | null = $derived(
+        isFilled.contentRelationship(content.project_four) ? setProjectFromId(content.project_four.id) : null
+    );
+    const projectFive: ProjectDocument | null = $derived(
+        isFilled.contentRelationship(content.project_five) ? setProjectFromId(content.project_five.id) : null
+    );
+    const projectSix: ProjectDocument | null = $derived(
+        isFilled.contentRelationship(content.project_six) ? setProjectFromId(content.project_six.id) : null
+    );
+    const projectSeven: ProjectDocument | null = $derived(
+        isFilled.contentRelationship(content.project_seven) ? setProjectFromId(content.project_seven.id) : null
+    );
 
 </script>
 

@@ -69,7 +69,7 @@
 
   
  
-      const tripledImages = imageArray.concat(imageArray).concat(imageArray)
+      const tripledImages = $derived(imageArray.concat(imageArray).concat(imageArray))
   </script>
   <svelte:window bind:innerWidth={viewportWidth} />
       

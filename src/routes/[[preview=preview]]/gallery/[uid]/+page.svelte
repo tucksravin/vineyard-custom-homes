@@ -18,12 +18,8 @@
 
   let { data } = $props();
 
-  let content = $state(data.page.data);
+  const content = $derived(data.page.data);
 
-  $effect(() => {
-    content = data.page.data;
-  });
-  
 </script>
 {#key data}
 <ScreenWidthMedia

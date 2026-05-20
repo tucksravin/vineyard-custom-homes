@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/tuckerlemos/Documents/GitHub/vineyard-custom-homes ls-files)",
+      "Bash(pnpm view *)",
+      "Bash(grep -v '$derived\\\\|$state\\\\|//')",
+      "Bash(grep -v '$derived\\\\|$state\\\\|$props')"
+    ]
+  }
+}

@@ -55,8 +55,8 @@ const LITTLE_LOREM =`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Su
 
 	let { data } = $props();
 
-    const ownerTestimonials = data.ownerTestimonials.data;
-	  const contractorTestimonials = data.contractorTestimonials.data;
+	const ownerTestimonials = $derived(data.ownerTestimonials.data);
+	const contractorTestimonials = $derived(data.contractorTestimonials.data);
   
 
   </script>
