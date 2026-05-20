@@ -1,4 +1,8 @@
 [build]
-    command = "npm run build"
+    command = "pnpm build"
     publish = "build/"
     functions = "functions/"
+
+[build.environment]
+    NPM_FLAGS = "--version"
+    PNPM_VERSION = "10.33.1"
