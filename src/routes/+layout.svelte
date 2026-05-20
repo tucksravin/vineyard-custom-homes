@@ -16,15 +16,19 @@
 	{#if page.data.meta_description}
 		<meta name="description" content={page.data.meta_description} />
 	{/if}
-	{#if page.data.meta_title}
-		<meta name="og:title" content={page.data.meta_title} />
-	{:else}
-	<meta name="og:title" content="Vineyard Custom Homes" />
+	<meta property="og:title" content={page.data.meta_title || page.data.title || "Vineyard Custom Homes"} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={`https://www.vineyardconstruction.com${page.url.pathname === '/' ? '' : page.url.pathname}`} />
+	<meta property="og:site_name" content="Vineyard Custom Homes" />
+	{#if page.data.meta_description}
+		<meta property="og:description" content={page.data.meta_description} />
 	{/if}
 	{#if page.data.meta_image}
-		<meta name="og:image" content={page.data.meta_image.url} />
+		<meta property="og:image" content={page.data.meta_image.url} />
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content={page.data.meta_image.url} />
 	{/if}
+	<link rel="canonical" href={`https://www.vineyardconstruction.com${page.url.pathname === '/' ? '' : page.url.pathname}`} />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 	</svelte:head>
 
